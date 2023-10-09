@@ -1,12 +1,9 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - sohaamir
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - sohaamir/sohaamir.github.io
+  - sohaamir/my_brain
+  - N-HEDGER/CINN_cookie
+  - repro-school/2023-02-20-renga
+  - N-HEDGER/NEURO_PYTHON

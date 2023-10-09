@@ -2,96 +2,75 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
+      value: Aamir Sohail
     - name: Date of Birth
-      value: 14th March 1879
+      value: 17th April 1995
     - name: Languages
-      value: English, German
+      value: English, Punjabi (basic)
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: PhD (Psychology)
+      institution: University of Birmingham, Birmingham, UK
+      year: 2023-27
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Course - MRC AIM iCASE DTP PhD Scholarship
+        - Thesis - ‘Neurocomputational mechanisms of self-referencing in social anxiety’
+        - Supervisors - Dr Lei Zhang, Dr Patricia Lockwood, Professor Mark Haselgrove, Dr Jessica McFadyen
+    - title: MSc (Brain Imaging)
+      institution: University of Nottingham, Nottingham, UK
+      year: 2017-18
       description:
-        - Description 1.
-        - Description 2.
+        - Thesis - 'A psychophysiological interactions analysis investigating the neuromodulatory role of the basal forebrain with the processing of unexpected events’ 
+        - Supervisors - Dr Claudia Danielmeier, Dr Jan Derrfuss
+    - title: BSc (Biomedical Science)
+      institution: Imperial College London, London, UK
+      year: 2013-16
+      description:
+        - Thesis - 'Analysis of the reward system in Disordered Gamblers using MR and 11C-carfentanil PET’ 
+        - Supervisors - Professor Anne Lingford Hughes, Dr Sam Turton
+
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: CINN Operations Support
+      institution: School of Psychology and Clinical Language Sciences, University of Reading, UK
+      year: 2022-23
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
-      description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - Research assistant for multiple neuroimaging studies employing a combination of imaging (fMRI, MRS, ASL, LDI) and behavioural methods.
+        - Study lead for an industry-funded behavioural study.
+        - Teaching assistant for the 'Introduction to Neuroscience Research Methods' module
+    - title: CINN Assistant
+      institution: School of Psychology and Clinical Language Sciences, University of Reading, UK
+      year: 2021-22
       description:
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Junior Research Fellow
+      institution: School of Psychology and Clinical Language Sciences, University of Reading, UK
+      year: 2021
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2023
       items: 
-        - Nobel Prize in Physics 
-        - Matteucci Medal
-    - year: 2029
-      items: 
-        - Max Planck Medal
+        - MRC AIM DTP PhD Scholarship (University of Birmingham ~ £90,000)
+        - LGBT+ Inclusion Initiative Fund (University of Reading ~ up to £1,000)
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Neuroimaging
       items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - fMRI, MRS, ASL
+        - Functional connectivity, multi-variate analysis, open and reproducible science
+    - title: Statistics
       items:
-        - Description 1.
-        - Description 2.
+        - Bayesian statistics, general linear models
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> snooker 🎱, music 🎶, travelling ✈️

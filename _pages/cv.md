@@ -4,8 +4,8 @@ permalink: /cv/
 title: cv
 nav: true
 nav_order: 4
-cv_pdf: example_pdf.pdf
-description: This is a description of the page. You can modify it in 'pages/_cv.md'. You can also change or remove the top pdf download button.
+cv_pdf: academic_cv.pdf
+description: Current version of my academic CV (last updated 5/10/2023). A PDF is also available to view/download by clicking on the PDF icon 👉
 toc:
   sidebar: left
 ---

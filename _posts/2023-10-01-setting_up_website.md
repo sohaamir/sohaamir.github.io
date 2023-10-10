@@ -9,7 +9,7 @@ giscus_comments: false
 related_posts: false
 ---
 
-_Let's say you just started a new position (maybe as a PhD student) and would like to create an academic website, as seems to be all the rage nowadays. However, are relatively new to programming, and are unsure on where to even get started.Creating a website can seem to be a daunting task, but the initial steps to creating a basic website is actually quite simple (even a numbskull like myself can do it!). This post will cover all of the steps that you need in order to create the base for an academic website using the academicpages template._
+_Let's say you just started a new position (maybe as a PhD student) and would like to create an academic website, as seems to be all the rage nowadays. However, are relatively new to programming, and are unsure on where to even get started. Creating a website can seem to be a daunting task, but the initial steps to creating a basic website is actually quite simple (even a numbskull like myself can do it!). This post will cover all of the steps that you need in order to create the base for an academic website using the academicpages template._
 <br>
 <div style="text-align: center;">
   <img src="/assets/img/posts/website_guide/typing.gif" alt="Typing GIF" width="500" height="250">
@@ -21,6 +21,7 @@ _Let's say you just started a new position (maybe as a PhD student) and would li
 The first question that you should ask yourself is which template you would like to use. Two of the most popular options, at least when creating an 'academic' website are the [academicpages](https://academicpages.github.io/) template in Jekyll, or the [Academic Theme](https://academic-demo.netlify.app/) in Hugo. If the words 'Jekyll' and 'Hugo' mean nothing (apart from a vague recollection of 19th century literature) then that's ok! All you need to know is that the two look slightly different in their presentation, and that the set-up and maintenance of each website (in terms of programming) will be quite different. Both are very popular and so have plenty of guides and help available, however it is worth looking at each of the two before choosing which theme you would like. 
 
 (Of course, selecting these two themes stem from my personal preference in having a more 'conventional' theme, there are plenty of other alternatives to choose from!)
+  
 
 <div style="display: flex; justify-content: center; align-items: center;">
   <figure>
@@ -174,7 +175,7 @@ The first thing which grabs people's attention is the GIF of a brain (actually a
 And voila, you have your very own GIF!
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src='/assets/img/posts/website_guide/brain_3_planes.gif' alt='Brain planes GIF' width='800' height='300'>
+  <img src='/assets/img/posts/website_guide/brain_3_planes.gif' alt='Brain planes GIF' width='800' height='250'>
 </div>
 <br>
 **Adding a Google Map**
@@ -344,3 +345,4 @@ And that's it! Your GitHub repository should then update with your local changes
   <img src='/assets/img/posts/website_guide/github_screenshot.png' alt='GitHub screenshot' width='550' height='300'>
 </div>
 
+_N.B If you are wondering why this guide is for the academicpages theme when I am currently using the al-folio theme, then yes I ended up changing my mind after initially making my website in the former 🤦_

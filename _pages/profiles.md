@@ -1,8 +1,8 @@
 ---
 layout: profiles
 permalink: /people/
-title: people
-description: members of the lab or group
+title: ALPN Lab
+description: Members of the Adaptive Learning (in) Psychology and Neuroscience (ALPN) Lab at the CHBH 🧠
 nav: true
 nav_order: 6
 
@@ -10,19 +10,15 @@ profiles:
   # if you want to include more than one profile, just replicate the following block
   # and create one content file for each profile inside _pages/
   - align: right
-    image: prof_pic.jpg
-    content: about_einstein.md
+    image: lei.png
+    content: about_lei.md
     image_circular: false # crops the image to make it circular
     more_info: >
-      <p>555 your office number</p>
-      <p>123 your address street</p>
-      <p>Your City, State 12345</p>
+      <p>Lei Zhang</p>
   - align: left
-    image: prof_pic.jpg
-    content: about_einstein.md
+    image: gwyn.png
+    content: about_gwyn.md
     image_circular: false # crops the image to make it circular
     more_info: >
-      <p>555 your office number</p>
-      <p>123 your address street</p>
-      <p>Your City, State 12345</p>
+      <p>Gwynnevere Suter</p>
 ---

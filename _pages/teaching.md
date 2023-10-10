@@ -2,13 +2,19 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Courses that I have taught on.
+description: Courses that I have assisted/taught.
 nav: true
 nav_order: 5
 ---
 
 ### University of Reading 
 
-PYI1NM - Introduction to Neuroscience Methods
+PY1INM - Introduction to Neuroscience Methods (Module convenor: Professor Anastasia Christakou)
+
+Served as a teaching assistant with [Dr Rich Harrison](http://richaharrison.com/) with group tutorials (20 students per class) covering: 
+- Introduction to Neuroimaging (principles of MRI/fMRI, TMS, EEG)
+- Experimental Design and Research Questions
+- Neuroethics 
+- Practical tour and demonstration of CINN laboratories (MRI, EEG, TMS)
 
 

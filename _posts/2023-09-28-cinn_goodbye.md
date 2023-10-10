@@ -15,5 +15,5 @@ Best,
 Aamir
 
 <div style="text-align: center;">
-  <img src='/assets/img/posts/cinn_goodbye/cinn_goodbye.jpeg' alt='CINN Goodbye' width='700' height='340'>
+  <img src='/assets/img/posts/cinn_goodbye/cinn_goodbye.jpeg' alt='CINN Goodbye' width='700' height='320'>
 </div>

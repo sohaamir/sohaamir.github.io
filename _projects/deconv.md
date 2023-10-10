@@ -18,9 +18,11 @@ category: work
 Therefore, in this project we re-analysed data from a reversal learning task, performing deconvolution to extract HRFs from regions of the striatum, during feedback and decision making epochs in initial learning and reversal learning phases. We were able to demonstrate significant changes in the HRF between initial and reversal phases for both decision making and feedback epochs in the caudate, suggesting a functional role of this region with initial but not reversal learning.
 
 [Click here](/assets/img/deconv_poster.jpg) to see a full-screen version of a poster summarising the project presented at the Interpreting BOLD (Online) conference.
-
-### 🌐 Team: 
 <br>
+<br>
+### 🌐 Team: 
+  
+  
 **University of Reading:**
 
 [Professor Anastasia Christakou](https://anastasia.christakou.org/) (Centre for Integrative Neuroscience and Neurodynamics)  

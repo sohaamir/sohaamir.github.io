@@ -8,10 +8,6 @@ profile:
   align: right
   image: profile_pic_2.png
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>MRC AIM PhD Student</p>
-    <p>University of Birmingham</p>
-    <p>Birmingham, UK</p>
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
@@ -29,17 +25,18 @@ social: true  # includes social icons at the bottom of the page
 <br>
 <br>
 # 📕 Quick Bio 
-<br>
+  
+  
 <div style="float: left; margin-right: 10px;">
   <img src="/assets/img/my_brain.gif" alt="Brain GIF" width="150" height="150">
 </div>
 I completed a BSc in Biomedical Science at Imperial College London, with my final-year project supervised by [Anne Lingford-Hughes](https://www.imperial.ac.uk/people/anne.lingford-hughes) and [Sam Turton](https://www.imperial.ac.uk/people/s.turton), followed by an MSc in Brain Imaging at the University of Nottingham under the supervision of [Jan Derrfuss](https://www.nottingham.ac.uk/psychology/people/jan.derrfuss) and [Claudia Danielmeier](https://www.nottingham.ac.uk/psychology/people/claudia.danielmeier). I then worked as research and administrative support at the Centre for Integrative Neuroscience and Neurodynamics (CINN) at the University of Reading under [Anastasia Christakou](https://anastasia.christakou.org/). 
 <br>
+<br>
 Outside of work I enjoy playing snooker 🎱 (high break of 63), going on meandering walks 🚶, watching cricket 🏏 and listening to music 🎶
 <br>
 <br>
-[Click here](https://github.com/sohaamir/my_brain){: .btn--research} to see some NIFTIs and GIFS of my 🧠  
-(That's a GIF of my white-matter nulled T1 on the left!)
+[Click here](https://github.com/sohaamir/my_brain){: .btn--research} to see some NIFTIs and GIFS of my 🧠 (That's a GIF of my white-matter nulled T1 above!)
 <br>
 <br>
 # ✉️ Contact Me

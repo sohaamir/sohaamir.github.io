@@ -18,9 +18,11 @@ category: work
 🧠 HAVEN included several neuroimaging measures in order to assess cognitive function, brain structure and the health of blood vessels in the brain. To this end we specifically used structural MRI, functional MRI (fMRI), arterial spin labelling (ASL), magnetic resonance spectroscopy (MRS) and angiography. We performed additional analyses on this data including conventional voxel-based morphometry (VBM) using FSL, functional connectivity using CONN and deconvolution using FLOBS.
 
 🕰️ Results/publications and open-access data coming soon!
-
-### 🌐 Team: 
 <br>
+<br>
+### 🌐 Team: 
+  
+  
 **University of Reading:**
 
 [Professor Anastasia Christakou](https://anastasia.christakou.org/) (Centre for Integrative Neuroscience and Neurodynamics, PI)  

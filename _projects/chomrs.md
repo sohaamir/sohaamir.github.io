@@ -19,9 +19,11 @@ category: work
 🖥️ An interesting feature of this study is that because we are not interested in the activity of the brain, only in the concentration of specific neurotransmitters, we allow for participants to watch whatever they like whilst in the scanner! As each session was approximately 2 hours long, this was significantly better than looking at a fixation cross!
 
 🕰️ Results/publications and open-access data coming soon!
-
-### 🌐 Team: 
 <br>
+<br>
+### 🌐 Team: 
+  
+  
 **University of Reading:**
 
 [Professor Anastasia Christakou](https://anastasia.christakou.org/) (Centre for Integrative Neuroscience and Neurodynamics)  

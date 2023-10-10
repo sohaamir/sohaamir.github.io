@@ -13,12 +13,8 @@ profiles:
     image: lei.png
     content: about_lei.md
     image_circular: false # crops the image to make it circular
-    more_info: >
-      <p>Lei Zhang</p>
   - align: left
     image: gwyn.png
     content: about_gwyn.md
     image_circular: false # crops the image to make it circular
-    more_info: >
-      <p>Gwynnevere Suter</p>
 ---

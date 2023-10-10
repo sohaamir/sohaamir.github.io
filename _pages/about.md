@@ -25,8 +25,7 @@ socialcontact: true  # includes social icons under photo
 🌍 🏳️‍🌈 🌐 I am also passionate about facilitating inclusivity and diversity in academia, as well as promoting open and reproducible science. 
 <br>
 <br>
-# 📕 Quick Bio 
-  
+# 📕 Quick Bio   
 
 <div style="float: left; margin-right: 10px;">
   <img src="/assets/img/my_brain.gif" alt="Brain GIF" width="150" height="150">

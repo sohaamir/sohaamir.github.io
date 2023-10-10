@@ -13,7 +13,10 @@ I am retrospectively writing this from the CHBH 🌚 but I thought I would write
 
 Best,  
 Aamir
-
+<br>
+<br>
 <div style="text-align: center;">
   <img src='/assets/img/posts/cinn_goodbye/cinn_goodbye.jpeg' alt='CINN Goodbye' width='700' height='320'>
 </div>
+<br>
+_People (clockwise from left to right): Phoenix Byrne, Brendan Williams, Gabriella Rossetti (hidden 😢), Zola Dean, Charlenne Ordonez, Anastasiya Savchenko, Anastasia Christakou, Me, Rich Harrison, Claudia Rodriguez-Sobstel._

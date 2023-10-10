@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: GitHub
-description: Find me on GitHub @sohaamir 🖥️
+description: Find me on GitHub @[sohaamir](https://github.com/sohaamir) 🖥️
 nav: true
 nav_order: 3
 ---

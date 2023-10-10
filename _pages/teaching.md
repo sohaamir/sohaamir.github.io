@@ -11,9 +11,9 @@ nav_order: 5
 
 PY1INM - Introduction to Neuroscience Methods (Module convenor: Professor Anastasia Christakou)
 
-Served as a teaching assistant with [Dr Rich Harrison](http://richaharrison.com/) with group tutorials (20 students per class) covering: 
+Served as a teaching assistant with [Dr Rich Harrison](http://richaharrison.com/) on group tutorials (20 students per class) covering: 
 - Introduction to Neuroimaging (principles of MRI/fMRI, TMS, EEG)
-- Experimental Design and Research Questions
+- Constructing Research Hypotheses and Experimental Design
 - Neuroethics 
 - Practical tour and demonstration of CINN laboratories (MRI, EEG, TMS)
 

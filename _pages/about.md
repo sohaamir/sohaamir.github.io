@@ -13,6 +13,7 @@ news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
+socialcontact: true  # includes social icons under photo
 ---
   
 🏛️ I am a first year [MRC Advanced Interdisciplinary Methods (AIM) DTP](https://more.bham.ac.uk/mrc-aim/) PhD student based at the [Centre for Human Brain Health (CHBH)](https://www.birmingham.ac.uk/research/centre-for-human-brain-health/index.aspx), University of Birmingham.
@@ -26,7 +27,7 @@ social: true  # includes social icons at the bottom of the page
 <br>
 # 📕 Quick Bio 
   
-  
+
 <div style="float: left; margin-right: 10px;">
   <img src="/assets/img/my_brain.gif" alt="Brain GIF" width="150" height="150">
 </div>

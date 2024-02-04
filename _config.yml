@@ -81,7 +81,7 @@ quora_username: # your Quora username
 publons_id: # your ID on Publons
 lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 osf_id: ya4td
-research_gate_profile: # your profile on ResearchGate
+research_gate_profile: Aamir-Sohail-30
 scopus_id: # your profile on Scopus
 blogger_url: # your blogger URL
 work_url: # work page URL
@@ -136,8 +136,8 @@ related_blog_posts:
 # Follow instructions on https://giscus.app/ to setup for your repo to fill out
 # the information below.
 giscus:
-  repo:                          # <your-github-user-name>/<your-github-repo-name>
-  category: Comments             # name of the category under which discussions will be created
+  repo: sohaamir/sohaamir.github.io                         # <your-github-user-name>/<your-github-repo-name>
+  category: Announcements             # name of the category under which discussions will be created
   mapping: title                 # identify discussions by post title
   strict: 1                      # use strict identification mode
   reactions_enabled: 1           # enable (1) or disable (0) emoji reactions

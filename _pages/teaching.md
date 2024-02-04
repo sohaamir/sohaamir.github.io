@@ -9,7 +9,7 @@ nav_order: 5
 
 ### University of Birmingham
 
-Magnetic Resonance Imaging in Cognitive Neuroscience (MSc module) (Module convenor: Dr Magda Chechlacz)
+Magnetic Resonance Imaging in Cognitive Neuroscience (MSc module) (Module convenor: [Dr Magda Chechlacz](https://www.birmingham.ac.uk/staff/profiles/psychology/chechlacz-magda.aspx))
 
 Served as a teaching assistant for practical workshops (25 students per class) covering: 
 - Basics of Magnetic Resonance Imaging Data (file types, loading, reading and viewing files)

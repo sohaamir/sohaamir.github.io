@@ -2,7 +2,8 @@
 layout: about
 title: about
 permalink: /
-subtitle: #
+subtitle: >
+  <b>Computational psychiatry</b> ⎟ <b>Bayesian modeling</b> ⎟ <b>Social learning/anxiety</b>
 
 profile:
   align: right
@@ -25,8 +26,28 @@ socialcontact: true  # includes social icons under photo
 🌍 🏳️‍🌈 🌐 I am also passionate about facilitating inclusivity and diversity in academia, as well as promoting open and reproducible science. 
 <br>
 <br>
-# 📕 Quick Bio   
 
+<div class="education-section">
+  <h2>🎓 Education</h2>
+  <br>
+  <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 20px;">
+    <!-- Adjust 'justify-content' to 'space-between' for more spread or 'space-around' for even spacing with margins -->
+    <div style="text-align: center; flex-grow: 1;">
+      <img src="/assets/img/birmingham.png" alt="University of Birmingham Logo" width="100">
+      <p style="margin-top: 10px;"><strong>University of Birmingham</strong><br>PhD Psychology (2023-2027)</p>
+    </div>
+    <div style="text-align: center; flex-grow: 1;">
+      <img src="/assets/img/nottingham.png" alt="University of Nottingham Logo" width="95">
+      <p style="margin-top: 20px;"><strong>University of Nottingham</strong><br>MSc Brain Imaging (2018)</p>
+    </div>
+    <div style="text-align: center; flex-grow: 1;">
+      <img src="assets/img/imperial.png" alt="Imperial College London Logo" width="101">
+      <p style="margin-top: 20px;"><strong>Imperial College London</strong><br>BSc Biomedical Science (2016)</p>
+    </div>
+  </div>
+</div>
+
+## 📕 Quick Bio   
 <div style="float: left; margin-right: 10px;">
   <img src="/assets/img/my_brain.gif" alt="Brain GIF" width="150" height="150">
 </div>
@@ -39,7 +60,7 @@ Outside of work I enjoy playing snooker 🎱 (high break of 63), going on meande
 [Click here](https://github.com/sohaamir/my_brain){: .btn--research} to see some NIFTIs and GIFS of my 🧠 (That's a GIF of my white-matter nulled T1 above!)
 <br>
 <br>
-# ✉️ Contact Me
+## ✉️ Contact Me
 
 Please do not hesitate to contact me if you would like to inquire about opportunities, collaborations, or to just have a chat! I will try to respond to you as soon as I can 😊 
   

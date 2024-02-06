@@ -37,12 +37,12 @@ socialcontact: true  # includes social icons under photo
       <p style="margin-top: 10px;"><strong>University of Birmingham</strong><br>PhD Psychology (2023-2027)</p>
     </div>
     <div style="text-align: center; flex-grow: 1;">
-      <img src="/assets/img/nottingham.svg" alt="University of Nottingham Logo" width="89">
-      <p style="margin-top: 20px;"><strong>University of Nottingham</strong><br>MSc Brain Imaging (2018)</p>
+      <img src="/assets/img/nottingham.svg" alt="University of Nottingham Logo" width="91">
+      <p style="margin-top: 16px;"><strong>University of Nottingham</strong><br>MSc Brain Imaging (2018)</p>
     </div>
     <div style="text-align: center; flex-grow: 1;">
-      <img src="assets/img/imperial.png" alt="Imperial College London Logo" width="106">
-      <p style="margin-top: 11px;"><strong>Imperial College London</strong><br>BSc Biomedical Science (2016)</p>
+      <img src="assets/img/imperial.svg" alt="Imperial College London Logo" width="90">
+      <p style="margin-top: 17px;"><strong>Imperial College London</strong><br>BSc Biomedical Science (2016)</p>
     </div>
   </div>
 </div>

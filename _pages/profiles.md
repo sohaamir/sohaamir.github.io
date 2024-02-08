@@ -1,7 +1,7 @@
 ---
 layout: profiles
 permalink: /people/
-title: Lab
+title: lab
 description: Members of the Adaptive Learning (in) Psychology and Neuroscience (ALPN) Lab at the CHBH 🧠
 nav: true
 nav_order: 6

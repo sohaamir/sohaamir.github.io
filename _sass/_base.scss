@@ -1075,14 +1075,14 @@ nav[data-toggle="toc"] {
 }
 
 .gallery img {
-  width: 100%;
+  width: 80%;
   height: auto;
   transition: transform 0.3s ease; /* Smooth transition for scaling */
   display: block;
 }
 
 .gallery img:hover {
-  transform: scale(1.1); /* Enlarge the image on hover */
+  transform: scale(1.6); /* Enlarge the image on hover */
 }
 
 .gallery-caption {

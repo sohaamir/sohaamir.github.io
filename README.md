@@ -1,4 +1,4 @@
-# Aamir Sohail's personal website 🌐
+# `Aamir Sohail's` personal website 🌐
 
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/alshedivat/al-folio)
 ![GitHub](https://img.shields.io/github/license/alshedivat/al-folio?color=blue)

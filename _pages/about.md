@@ -135,3 +135,26 @@ UK
 </form>
 <br>
 <br>
+
+Image credits:
+
+<p class="small-text">
+  <a href="https://commons.wikimedia.org/wiki/File:Shield_of_Imperial_College_London.svg">Shield of Imperial College London</a> by 
+  <a href="https://commons.wikimedia.org/wiki/User:Shadowssettle">Shadowssettle</a> under 
+  <a href="https://creativecommons.org/licenses/by/3.0/deed.en">Creative Commons Attribution 3.0 Unported</a>. 
+</p>
+<p class="small-text">
+  <a href="https://commons.wikimedia.org/wiki/File:Shield_of_the_University_of_Birmingham.svg">Shield of the University of Birmingham</a> by 
+  <a href="https://commons.wikimedia.org/wiki/User:Shadowssettle">Shadowssettle</a> under 
+  <a href="https://creativecommons.org/licenses/by/3.0/deed.en">Creative Commons Attribution 3.0 Unported</a>. 
+</p>
+<p class="small-text">
+  <a href="https://commons.wikimedia.org/wiki/File:Shield_of_the_University_of_Nottingham.svg">Shield of the University of Nottingham</a> by 
+  <a href="https://commons.wikimedia.org/wiki/User:Shadowssettle">Shadowssettle</a> under 
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-Share Alike 4.0 International</a>.
+</p>
+<p class="small-text">
+  <a href="https://commons.wikimedia.org/wiki/File:Rotating_earth_%28large%29_transparent">Rotating earth (large) transparent.gif</a> by 
+  <a href="https://commons.wikimedia.org/wiki/User:Jahobr">Jahobr</a> under 
+  <a href="https://creativecommons.org/licenses/by/3.0/deed.en">Creative Commons Attribution 3.0 Unported</a>.
+</p>

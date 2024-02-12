@@ -344,5 +344,20 @@ And that's it! Your GitHub repository should then update with your local changes
 <div style="text-align: center;">
   <img src='/assets/img/posts/website_guide/github_screenshot.png' alt='GitHub screenshot' width='550' height='300'>
 </div>
+<br>
 
 _N.B If you are wondering why this guide is for the academicpages theme when I am currently using the al-folio theme, then yes I ended up changing my mind after initially making my website in the former 🤦_
+
+Image credits:
+
+<p class="small-text">
+  Bruce Almighty GIF: Tom Shadyac, et al. © BRUCE ALMIGHTY. USA, 2003. GIF provided by 
+  <a href="https://tenor.com/en-GB/view/bruce-almighty-jim-carrey-type-typing-fast-gif-4271405">Tenor</a>
+</p>
+
+<p class="small-text">
+  Screenshots: 
+  <a href="https://lakemper.eu/">Michael Schlottke-Lakemper</a>, 
+  <a href="https://jayrobwilliams.com/">Rob Williams</a>, 
+  <a href="https://github.com/academicpages/academicpages.github.io">Academic Pages</a> © 2016 Michael Rose and released under the MIT License.
+</p>

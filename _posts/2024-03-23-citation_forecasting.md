@@ -13,7 +13,7 @@ Note: this guide is also available on the corresponding GitHub [repository](http
 
 This is a detailed guide for performing the extraction and forecasting of Google Scholar data for researchers at the Centre for Human Brain Health (CHBH), University of Birmingham.
 
-Specficially, this involves
+Specficially, this involves:
 
 - Scraping a list of researchers at the CHBH from the CHBH website (using `beautifulsoup4` ).
 - Extracting Google Scholar statistics including citation data (using `serpapi` ).

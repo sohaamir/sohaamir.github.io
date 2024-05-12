@@ -4,7 +4,7 @@ title: Once a CINNer, always a CINNer
 date: 2023-09-28 09:56:00-0400
 description: Saying goodbye to CINN after 2 and a half years!
 tags: cinn, goodbye
-categories: blog
+categories: blogs
 giscus_comments: false
 related_posts: false
 ---

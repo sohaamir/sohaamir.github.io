@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Forecasting Google Scholar statistics for senior researchers at the Centre for Human Brain Health"
+title: "Forecasting Google Scholar statistics for researchers at the Centre for Human Brain Health"
 date: 2024-03-23 11:35:00-0400
 description: A detailed guide on how to extract and predict Google Scholar citations using beautifulsoup4, SerpAPI and Prophet
 tags: python, CHBH, forecasting, beautifulsoup4, serpapi, prophet

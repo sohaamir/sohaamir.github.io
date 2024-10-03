@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A memorable summer of schools
-date: 2024-10-03 16:20:00-0400
+date: 2024-09-03 16:20:00-0400
 description: Three summer schools, a conference and a forum
 tags: summer school, PhD, travelling
 categories: blogs

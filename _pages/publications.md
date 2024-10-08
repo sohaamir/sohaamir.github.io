@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: No publications as of yet, but keep an eye out! 👀
+description: My list of peer-reviewed publications and pre-prints
 nav: true
 nav_order: 1
 ---

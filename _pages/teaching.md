@@ -7,7 +7,7 @@ nav: true
 nav_order: 5
 ---
 
-### University of Birmingham
+### University of Birmingham (2023-25)
 
 Magnetic Resonance Imaging in Cognitive Neuroscience (MSc module) (Module convenor: [Dr Magdalena Chechlacz](https://www.birmingham.ac.uk/staff/profiles/psychology/chechlacz-magda.aspx))
 
@@ -16,9 +16,15 @@ Served as a teaching assistant for practical workshops (25 students per class) c
 - Introduction to Programming (Linux, bash)
 - Using FSL to perform neuroimaging analyses (diffusion MRI, resting-state and task-based fMRI)
 
-As part of the module I created and ran a tutorial in conducting group-level resting-state fMRI using FSL. Committed to open-source education, you can find these materials (along with an introduction to neuroimaging in Python) [here](https://sohaamir.github.io/MRICN/). 
+Together with Magdalena Chechlacz and [Andrew Quinn](https://www.birmingham.ac.uk/staff/profiles/psychology/quinn-andrew), I created and actively maintain the [MRI-on-BEAR](https://chbh-opensource.github.io/mri-on-bear-edu/) website, which hosts the MRICN practical workshops. Within the module, I also created - and teach - the final weeks' workshop [on functional connectivity](https://chbh-opensource.github.io/mri-on-bear-edu/workshop8/functional-connectivity/).
 
-### University of Reading 
+<div style="text-align: center;">
+  <img src='/assets/img/teaching/mri-on-bear.png' alt='MRIonBEAR' width='700'>
+</div>
+
+<br>
+
+### University of Reading (2022-23)
 
 Introduction to Neuroscience Methods (BSc module) (Module convenor: [Professor Anastasia Christakou](https://anastasia.christakou.org/))
 

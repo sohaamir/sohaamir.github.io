@@ -17,7 +17,7 @@ social: true  # includes social icons at the bottom of the page
 socialcontact: true  # includes social icons under photo
 ---
   
-🏛️ I am a first year [MRC Advanced Interdisciplinary Methods (AIM) DTP](https://more.bham.ac.uk/mrc-aim/) PhD student based at the [Centre for Human Brain Health (CHBH)](https://www.birmingham.ac.uk/research/centre-for-human-brain-health/index.aspx), University of Birmingham.
+🏛️ I am an [MRC Advanced Interdisciplinary Methods (AIM) DTP](https://more.bham.ac.uk/mrc-aim/) PhD student based at the [Centre for Human Brain Health (CHBH)](https://www.birmingham.ac.uk/research/centre-for-human-brain-health/index.aspx), University of Birmingham.
 
 🧠 My research interests involve using a combination of behavioural tasks, computational modelling and neuroimaging to understand social decision-making, and using this knowledge to inform the precision-based treatment of mental health disorders.
   

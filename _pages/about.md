@@ -23,7 +23,9 @@ socialcontact: true  # includes social icons under photo
 
 🧠 My research interests involve using a combination of behavioural tasks, computational modelling and neuroimaging to understand social decision-making, and using this knowledge to inform the precision-based treatment of mental health disorders.
   
-🎓 Reflecting this, my PhD aims to use these methods to identify the neurocomputational mechanisms and associated brain regions affecting learning in social anxiety, and in a novel initiative, attempt to alleviate these changes using an mobile app-based cognitive therapy program. I am supervised by [Lei Zhang](https://lei-zhang.net/) and [Patricia Lockwood](https://www.birmingham.ac.uk/staff/profiles/psychology/lockwood-patricia.aspx).
+🎓 Reflecting this, my PhD aims to use these methods to identify the neurocomputational mechanisms and associated brain regions affecting learning in social anxiety, and in a novel initiative, attempt to alleviate these changes using an mobile app-based cognitive therapy program. 
+
+I am supervised by [Lei Zhang](https://lei-zhang.net/) and [Patricia Lockwood](https://www.birmingham.ac.uk/staff/profiles/psychology/lockwood-patricia.aspx).
 
 🌍 🏳️‍🌈 🌐 I am also passionate about facilitating inclusivity and diversity in academia, as well as promoting open and reproducible science. 
 <br>

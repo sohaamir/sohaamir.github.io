@@ -60,7 +60,7 @@ To do this, run the command:
 
 For example, typing: 
 
-``ip index versions numpy`
+`pip index versions numpy`
 
 gives the following output:
 
@@ -414,3 +414,11 @@ Code Ocean then sets everything up in the cloud automatically as Docker would. <
 Ultimately, Code Ocean works best as a final snapshot of your completed analyses that others can examine. It does this efficiently and with less hassle than Docker. However, it's not really meant to be a platform where people actively work on code. If you're teaching a class where students need to write and modify code, or if you're actively developing software, you might want to use something else.
 
 There's a reason why their environments are called 'capsules'!
+
+Altogether, you can see how both `renv` and Docker can be used with GitHub to help others reproduce your specific working environment:
+
+<div style="text-align: center;">
+  <img src='/assets/img/posts/reproducibility_tools/renv_docker_github.png' alt='Reproducibility workflow' width='750'>
+</div>
+
+<br>

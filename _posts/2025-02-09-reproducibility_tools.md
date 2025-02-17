@@ -419,6 +419,9 @@ Altogether, you can see how both `renv` and Docker can be used with GitHub to he
 
 <div style="text-align: center;">
   <img src='/assets/img/posts/reproducibility_tools/renv_docker_github.png' alt='Reproducibility workflow' width='750'>
+  <p style="margin-top: 20px; font-size: 1.2em; color: #666;">
+    <em>Using Docker and renv together with GitHub can reproduce environments with only a few commands!</em>
+  </p>
 </div>
 
 <br>

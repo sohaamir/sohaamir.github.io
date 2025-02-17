@@ -17,13 +17,9 @@ social: true  # includes social icons at the bottom of the page
 socialcontact: true  # includes social icons under photo
 ---
 
-![Visitors](https://pageview.vercel.app/?github_user=sohaamir/sohaamir.github.io)
-
 🏛️ I am an [MRC Advanced Interdisciplinary Methods (AIM) DTP](https://more.bham.ac.uk/mrc-aim/) PhD student based at the [Centre for Human Brain Health (CHBH)](https://www.birmingham.ac.uk/research/centre-for-human-brain-health/index.aspx), University of Birmingham.
 
 🧠 My research interests involve using a combination of behavioural tasks, computational modelling and neuroimaging to understand social decision-making, and using this knowledge to inform the precision-based treatment of mental health disorders.
-  
-🎓 Reflecting this, my PhD aims to use these methods to identify the neurocomputational mechanisms and associated brain regions affecting learning in social anxiety, and in a novel initiative, attempt to alleviate these changes using an mobile app-based cognitive therapy program. 
 
 I am supervised by [Lei Zhang](https://lei-zhang.net/) and [Patricia Lockwood](https://www.birmingham.ac.uk/staff/profiles/psychology/lockwood-patricia.aspx).
 

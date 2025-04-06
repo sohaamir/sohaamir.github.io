@@ -13,7 +13,7 @@ gallery_images:
   - image: imperial_house.png
     caption: "Completely oblivious to the fact that I am blocking Rohan out of the group photo at Kaiji's"
   - image: imperial_gang.png
-    caption: "With the undergrad gang: Shuntaro, [Saloni](https://twitter.com/salonium), Rohan, Jenny, Kaiji and [Susan](https://twitter.com/SusanKilgas)"
+    caption: "With the undergrad gang: Shuntaro, [Saloni](https://ourworldindata.org/team/saloni-dattani), [Rohan](https://www.researchgate.net/profile/Rohan_Pancharatnam), Jenny, Kaiji and [Susan](https://connects.catalyst.harvard.edu/Profiles/display/Person/204613)"
   - image: imperial_susan.png
     caption: "Not sure what emotion Susan is conveying here"
   - image: imperial_hyde.png
@@ -49,5 +49,9 @@ gallery_images:
   - image: reading_return_meal.png
     caption: "Returning to Reading with Lei"
   - image: reading_return.png
-    caption: "With two great mentors, [Lei](https://twitter.com/lei_zhang_lz) and [Anastasia](https://twitter.com/Christakou)"
+    caption: "With two great mentors, [Lei](https://www.birmingham.ac.uk/staff/profiles/psychology/zhang-lei) and [Anastasia](https://anastasia.christakou.org/)"
+  - image: cmmc.png
+    caption: "Attending the [CMMC Summer School](https://sites.uci.edu/cmmc/) 2024 in Hinterstoder, Austria"
+  - image: cluny.png
+    caption: "[Neurobridges](https://neurobridges.net/) 2024 in Cluny, France"
 ---

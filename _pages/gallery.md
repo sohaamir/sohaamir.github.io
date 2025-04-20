@@ -54,4 +54,6 @@ gallery_images:
     caption: "Attending the [CMMC Summer School](https://sites.uci.edu/cmmc/) 2024 in Hinterstoder, Austria"
   - image: cluny.png
     caption: "[Neurobridges](https://neurobridges.net/) 2024 in Cluny, France"
+  - image: misinformation_event.png
+    caption: "Hosting a panel discussion on misinformation in London and reuniting with Saloni after almost 10 years!"
 ---

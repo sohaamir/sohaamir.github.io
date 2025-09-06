@@ -37,6 +37,7 @@ I am strongly passionate about open-source education and oportunities. To this e
 - [BayesCog](https://alpn-lab.github.io/BayesCog/), a freely available online course in Bayesian Cognitive modeling, created with [Lei Zhang](https://lei-zhang.net/).
 - [MRI on BEAR](https://chbh-opensource.github.io/mri-on-bear-edu/), the course website for the Magnetic Resonance Imaging in Cognitive Neuroscience (MRICN) MSc module at the University of Birmingham. Created with Magda Chechlacz, Andrew Quinn and James Carpenter.
 - [Neuro Resources](https://sohaamir.github.io/neuro_resources/), a collection of neuroscience resources and learning materials for cognitive neuroscientists.
+- [Introduction to R for Behavioural Researchers](https://sohaamir.github.io/r_intro_workshop/), an interactive tutorial to data analysis and plotting in `R` taught at a [CENTRE-UB](https://www.birmingham.ac.uk/research/centre-ub/centre-ub) workshop at the University of Birmingham.
 
 <div class="repo-cards">
   <div class="repo-card">

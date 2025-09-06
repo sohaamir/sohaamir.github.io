@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "When knowing about cognitive neuroscience can make you a millionaire"
-date: 2025-05-19 11:35:00-0400
+date: 2025-09-05 11:35:00-0400
 description: And the forgotten flawed million-dollar question
 tags: millionaire, gameshows, prefrontal cortex
 categories: article

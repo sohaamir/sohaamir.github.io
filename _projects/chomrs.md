@@ -4,7 +4,7 @@ title: CHOMRS
 description: Reliability of magnetic resonance spectroscopy measures of brain metabolites
 img: assets/img/mrs.png
 importance: 4
-category: work
+category: past
 ---
 
 <div style="display: flex; justify-content: center; align-items: center;">

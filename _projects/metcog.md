@@ -4,12 +4,12 @@ title: METCOG
 description: Metacognition and personality as modulators of planned behaviour
 img: assets/img/honda.png
 importance: 2
-category: work
+category: past
 giscus_comments: false
 ---
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src='/assets/img/honda.png' alt='HONDA diagram' width='350' height='400'>
+  <img src='/assets/img/honda.png' alt='HONDA diagram' width='550' height='600'>
 </div>
 <br>
 

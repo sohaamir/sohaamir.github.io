@@ -4,10 +4,10 @@ title: DECONV
 description: Differential haemodynamic responses in the human striatum during initial and reversal learning
 img: assets/img/deconv_poster.jpg
 importance: 3
-category: work
+category: past
 ---
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src='/assets/img/deconv_poster.jpg' alt='DECONV diagram' width='450' height='350'>
+  <img src='/assets/img/deconv_figure.png' alt='DECONV diagram' width='450' height='350'>
 </div>
 <br>
 

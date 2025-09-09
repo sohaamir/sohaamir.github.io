@@ -4,7 +4,7 @@ title: HAVEN
 description: Investigating the relationship between HAemostatic function, VEssel health and Neurocognitive Health
 img: /assets/img/haven.png
 importance: 1
-category: work
+category: past
 ---
 
 <div style="display: flex; justify-content: center; align-items: center;">

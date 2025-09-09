@@ -7,22 +7,28 @@ nav: true
 nav_order: 5
 ---
 
+<img src="/assets/img/birmingham.png" alt="Birmingham crest" class="img-fluid" style="max-width: 80px;">
+
 ### University of Birmingham (2023-25)
 
 Magnetic Resonance Imaging in Cognitive Neuroscience (MSc module) (Module convenor: [Dr Magdalena Chechlacz](https://www.birmingham.ac.uk/staff/profiles/psychology/chechlacz-magda.aspx))
 
-Served as a teaching assistant for practical workshops (25 students per class) covering: 
-- Basics of Magnetic Resonance Imaging Data (file types, loading, reading and viewing files)
-- Introduction to Programming (Linux, bash)
-- Using FSL to perform neuroimaging analyses (diffusion MRI, resting-state and task-based fMRI)
+At the University of Birmingham, I have acted as a Postgraduate Teaching Assistant for the MRICN course for both the 2023-24 and 24-25 academic years. This involves assisting practical workshops covering the following topics: 
+- Basics of MRI data (file types, manipulating images using FSLeyes)
+- Introduction to programming (Linux commands, `bash` scripting)
+- Neuroimaging analysis using [FSL](https://fsl.fmrib.ox.ac.uk/fsl/docs/#/) (diffusion MRI, resting-state and task-based fMRI)
 
-Together with Magdalena Chechlacz and [Dr Andrew Quinn](https://www.birmingham.ac.uk/staff/profiles/psychology/quinn-andrew), I created and actively maintain the [MRI-on-BEAR](https://chbh-opensource.github.io/mri-on-bear-edu/) website, which hosts the MRICN practical workshops. Within the module, I also developed - and teach - the final weeks' workshop [on functional connectivity](https://chbh-opensource.github.io/mri-on-bear-edu/workshop8/functional-connectivity/).
+During my first year, I noted that the existing materials were hosted locally and could be improved by hosting them on a dedicated website. Together with Magdalena Chechlacz and [Dr Andrew Quinn](https://www.birmingham.ac.uk/staff/profiles/psychology/quinn-andrew), I created and actively maintain the new [MRI-on-BEAR](https://chbh-opensource.github.io/mri-on-bear-edu/) website, which now permanently hosts the materials for practical workshops of the MRICN module. Within the course, I also developed - and teach - the final weeks' workshop [on functional connectivity](https://chbh-opensource.github.io/mri-on-bear-edu/workshop8/functional-connectivity/).
+
+<br>
+
+<img src="/assets/img/reading_crest.png" alt="LLM Reading crest" class="img-fluid" style="max-width: 70px;">
 
 ### University of Reading (2022-23)
 
 Introduction to Neuroscience Methods (BSc module) (Module convenor: [Professor Anastasia Christakou](https://anastasia.christakou.org/))
 
-Served as a teaching assistant with [Dr Rich Harrison](http://richaharrison.com/) for group tutorials (20 students per class) covering: 
+During my time at the University of Reading, I served as a teaching assistant with [Dr Rich Harrison](http://richaharrison.com/) during the 2022-23 academic year. Specifically, this involved running group tutorials covering the following topics: 
 - Introduction to Neuroimaging (principles of MRI/fMRI, TMS, EEG)
 - Constructing Research Hypotheses and Experimental Design
 - Neuroethics 
@@ -30,11 +36,13 @@ Served as a teaching assistant with [Dr Rich Harrison](http://richaharrison.com/
 
 <br>
 
+<img src="/assets/img/github.png" alt="GitHub logo" class="img-fluid" style="max-width: 90px;">
+
 ### Educational Resources & Open Source Materials
 
-I am strongly passionate about open-source education and oportunities. To this end, I have contributed to several initiatives both with academic institutions, and through my own volition. This includes:
+I am strongly passionate about open-source and equal access to education. To this end, I have contributed to several initiatives both with academic institutions, and through my own volition. This includes:
 
-- [BayesCog](https://alpn-lab.github.io/BayesCog/), a freely available online course in Bayesian Cognitive modeling, created with [Lei Zhang](https://lei-zhang.net/).
+- [BayesCog](https://alpn-lab.github.io/BayesCog/), a freely available online course in Bayesian Cognitive modeling, created with [Dr Lei Zhang](https://lei-zhang.net/).
 - [MRI on BEAR](https://chbh-opensource.github.io/mri-on-bear-edu/), the course website for the Magnetic Resonance Imaging in Cognitive Neuroscience (MRICN) MSc module at the University of Birmingham. Created with Magda Chechlacz, Andrew Quinn and James Carpenter.
 - [Neuro Resources](https://sohaamir.github.io/neuro_resources/), a collection of neuroscience resources and learning materials for cognitive neuroscientists.
 - [Introduction to R for Behavioural Researchers](https://sohaamir.github.io/r_intro_workshop/), an interactive tutorial to data analysis and plotting in `R` taught at a [CENTRE-UB](https://www.birmingham.ac.uk/research/centre-ub/centre-ub) workshop at the University of Birmingham.
@@ -52,7 +60,7 @@ I am strongly passionate about open-source education and oportunities. To this e
       <p>A freely available course in Bayesian Statistics and Hierarchical Bayesian Modeling for Psychological Science</p>
       <div class="repo-stats">
         <span>⭐ Stars: 1</span>
-        <span>🔄 Updated: Feb 2025</span>
+        <span>🔄 Updated: Jul 2025</span>
       </div>
       <a href="https://github.com/Alpn-Lab/BayesCog" class="repo-button">View Repository</a>
       <a href="https://alpn-lab.github.io/BayesCog" class="repo-button">Visit Website</a>
@@ -71,7 +79,7 @@ I am strongly passionate about open-source education and oportunities. To this e
       <p>Materials for the Magnetic Resonance Imaging in Cognitive Neuroscience (MRICN) MSc module at the University of Birmingham</p>
       <div class="repo-stats">
         <span>⭐ Stars: 2</span>
-        <span>🔄 Updated: Feb 2025</span>
+        <span>🔄 Updated: Jul 2025</span>
       </div>
       <a href="https://github.com/chbh-opensource/mri-on-bear-edu" class="repo-button">View Repository</a>
       <a href="https://chbh-opensource.github.io/mri-on-bear-edu/" class="repo-button">Visit Website</a>
@@ -90,10 +98,28 @@ I am strongly passionate about open-source education and oportunities. To this e
       <p>A collection of neuroscience resources and learning materials</p>
       <div class="repo-stats">
         <span>⭐ Stars: 6</span>
-        <span>🔄 Updated: Feb 2025</span>
+        <span>🔄 Updated: Jul 2025</span>
       </div>
       <a href="https://github.com/sohaamir/neuro_resources" class="repo-button">View Repository</a>
       <a href="https://sohaamir.github.io/neuro_resources" class="repo-button">Visit Website</a>
+    </div>
+  </div>
+
+  <div class="repo-card">
+    <div class="repo-header">
+      <img src="https://github.com/sohaamir.png" alt="Sohaamir" class="repo-avatar">
+      <div class="repo-title">
+        <h4>R for Behavioural Researchers</h4>
+        <p>sohaamir/r_intro_workshop</p>
+      </div>
+    </div>
+    <div class="repo-content">
+      <p>An interactive beginner course in R for behavioural researchers </p>
+      <div class="repo-stats">
+        <span>🔄 Updated: May 2025</span>
+      </div>
+      <a href="https://github.com/sohaamir/r_intro_workshop" class="repo-button">View Repository</a>
+      <a href="https://sohaamir.github.io/r_intro_workshop" class="repo-button">Visit Website</a>
     </div>
   </div>
 </div>

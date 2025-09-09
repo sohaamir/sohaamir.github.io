@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: My list of peer-reviewed publications and pre-prints
+description: My list of peer-reviewed publications, pre-prints and open-source materials
 nav: true
 nav_order: 1
 ---

@@ -1,7 +1,7 @@
 ---
 layout: gallery
 permalink: /gallery/
-title: gallery
+title: journey
 description: A collection of images.
 nav: true
 nav_order: 6

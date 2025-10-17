@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /
 subtitle: >
-  <b>Social learning</b> ⎟ <b>Bayesian modeling</b> ⎟ <b>Artifical intelligence</b>
+  <b>Social learning</b> ⎟ <b>Bayesian modeling</b> ⎟ <b>Artificial intelligence</b>
 
 profile:
   align: right
@@ -19,7 +19,7 @@ socialcontact: true  # includes social icons under photo
 
 🏛️ I am an [MRC Advanced Interdisciplinary Methods (AIM) DTP](https://more.bham.ac.uk/mrc-aim/) PhD student based at the [Centre for Human Brain Health (CHBH)](https://www.birmingham.ac.uk/research/centre-for-human-brain-health/index.aspx), University of Birmingham.
 
-🧠 My research interests involve using experimental tasks and computational modeling to understand social decision-making across humans and AI. I am also more broadly interested in the impact of AI on society, and in particular towards how science is conducted.
+🧠 My research interests involve using experimental tasks and computational modeling to understand social decision-making in humans and AI. I am also more broadly interested in the impact of AI on society, and towards how science is conducted.
 
 I am supervised by [Lei Zhang](https://lei-zhang.net/) and [Patricia Lockwood](https://www.birmingham.ac.uk/staff/profiles/psychology/lockwood-patricia.aspx).
 

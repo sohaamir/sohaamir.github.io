@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🏥 Together with neurosurgeon Marianna Kapsetaki and cardiothoractic surgeon Rohan Pancharatnam, we discuss the potential benefits of flow in surgery. Read it [here](https://www.sciencedirect.com/science/article/pii/S1931720425001746) in the Journal of Surgical Education!
+🏥 Together with neurosurgeon Marianna Kapsetaki and cardiothoracic surgeon Rohan Pancharatnam, we discuss the potential benefits of flow in surgery in an article published in the *Journal of Surgical Education*. Read it [here](https://www.sciencedirect.com/science/article/pii/S1931720425001746)!

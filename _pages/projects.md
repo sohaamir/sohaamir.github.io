@@ -11,6 +11,33 @@ nav_order: 2
 
 <h2 class="category">present</h2>
 
+<!-- Transdiagnostic social evaluative learning -->
+<div class="container mb-5">
+  <div class="row">
+    <div class="col-12 text-center mb-4">
+      <img src="/assets/img/social_learning.png" alt="Social evaluative learning figure" class="img-fluid" style="max-width: 550px;">
+    </div>
+    <div class="col-12">
+      <p class="lead"><b>Transdiagnostic factors differentially shape choices and reaction times in social evaluative learning</b></p>
+
+      <p><b>Learning from feedback provided by others is essential for navigating complex social environments.</b> Aberrant processing of such <b>social evaluative feedback</b> is implicated in the psychopathology of several mental health disorders including <b>social anxiety and depression</b>. Rather than focusing on individual diagnostic categories, this work adopts a <b>transdiagnostic approach</b> — examining mechanisms and constructs that cut across traditional psychiatric boundaries.</p>
+
+      <p>Human participants (n = 193) completed the <b>Social Evaluation Learning Task (SELT)</b>, learning whether computer personas 'liked,' 'disliked,' or were 'neutral' toward them, alongside six questionnaires assessing socially relevant psychiatric traits. <b>Computational modeling</b> using <b>reinforcement learning (RL)</b> models revealed that separate learning parameters for positive and negative feedback best accounted for behaviour. <b>Exploratory factor analysis</b> extracted three transdiagnostic factors from the questionnaire battery.</p>
+
+      <p>A factor reflecting <b>social avoidance</b> predicted enhanced learning from negative feedback and a reduced positive learning bias; socially avoidant individuals with heightened negative learning rates also showed <b>faster reaction times specifically in positive social contexts</b>. A second factor linked to <b>emotional insensitivity for others</b> predicted lower choice accuracy across both positively and negatively valenced conditions and was associated with faster reaction times overall. No significant associations emerged for a third factor reflecting <b>depressive and mood-related symptoms</b>.</p>
+
+      <p>These results demonstrate how <b>transdiagnostic trait dimensions shape social learning mechanisms</b> through specific behavioural and computational processes, contributing to a growing literature connecting <b>computational psychiatry</b> with <b>social cognitive neuroscience</b>.</p>
+
+      <div class="border p-4 bg-light rounded mb-4">
+        <h5><strong>Publications</strong></h5>
+        <p class="mb-0"><b>Sohail, A.</b>, Magda, A., Said, M., Phillips, L., Lu, Y., Reynolds, G., Comer-Fenn, A., Russell, J., Lu, H., Sims, T., Saulin, A.C. and Zhang, L. (2026). Transdiagnostic factors differentially shape choices and reaction times in social evaluative learning. <em>PsyArXiv</em>. <a href="https://osf.io/preprints/psyarxiv/svbfw_v1" target="_blank" rel="noopener noreferrer">https://osf.io/preprints/psyarxiv/svbfw_v1</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="my-5">
+
 <!-- Theory of mind in humans and machines -->
 <div class="container mb-5">
   <div class="row">

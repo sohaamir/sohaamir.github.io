@@ -1,0 +1,170 @@
+---
+import Channel from '../layouts/Channel.astro';
+import SocialIcon from '../components/SocialIcon.astro';
+import { SECTIONS, loadPapers, type Paper } from '../lib/papers';
+
+const papers = loadPapers('src/data/papers.bib');
+const sections = SECTIONS.map((s) => ({ ...s, items: papers.filter((p) => p.section === s.id) })).filter((s) => s.items.length);
+/** Papers are newest first; split a section into one group per year, in that order. */
+const byYear = (items: Paper[]) => [...new Set(items.map((p) => p.year))].map((year) => ({ year, items: items.filter((p) => p.year === year) }));
+
+/** Topic categories with counts, most used first, then A–Z. */
+const counts = new Map<string, number>();
+for (const p of papers) for (const k of p.keywords) counts.set(k, (counts.get(k) ?? 0) + 1);
+const categories = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const slug = (k: string) => k.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+/** "Sohail, A." → "A. Sohail" (reads cleanly in a comma-separated list). */
+const display = (a: string) => {
+	const [last, first] = a.split(', ');
+	return first ? `${first} ${last}` : a;
+};
+/** My own name, and the consortium I am part of, are bold (as on the CV). */
+const isMe = (a: string) => a === 'Sohail, A.' || a === 'WoCCAP Consortium';
+const joiner = (i: number, n: number) => (i === 0 ? '' : i < n - 1 ? ', ' : n > 2 ? ', and ' : ' and ');
+/** As on andrewheiss.com: the title's closing comma goes inside the quotes, unless it ends in ? or !. */
+const titled = (t: string) => (/[?!]$/.test(t) ? t : `${t},`);
+
+type Action = { icon: 'pdf' | 'code' | 'link'; label: string; href: string };
+const actions = (p: Paper): Action[] =>
+	[
+		p.url && { icon: 'link', label: p.section === 'journal' ? 'Final version' : 'Online', href: p.url },
+		p.preprint && { icon: 'link', label: 'Preprint', href: p.preprint },
+		p.pdf && { icon: 'pdf', label: 'PDF', href: p.pdf },
+		p.code && { icon: 'code', label: 'Code', href: p.code },
+	].filter((a): a is Action => Boolean(a));
+---
+
+<Channel channel="publications" title="publications · Aamir Sohail" heading="Research" sub="">
+	<p class="intro">
+		My research uses experimental tasks and computational modelling to understand <strong>social learning and decision-making</strong> in humans and AI. I also study how <strong>AI is changing academic work</strong> and how science is conducted, and I build <strong>open teaching materials</strong> for Bayesian modelling and neuroimaging.
+	</p>
+	{sections.map((s) => (
+		<section id={s.id} aria-labelledby={`h-${s.id}`} data-section>
+			<h2 id={`h-${s.id}`}>{s.label}</h2>
+			{byYear(s.items).map((g) => (
+				<div class="year" data-year-group>
+				<h3 class="year-head">{g.year}</h3>
+				{g.items.map((p) => (
+				<article class="paper" id={p.key} data-categories={p.keywords.map(slug).join(' ')}>
+					<p class="cite">
+						{p.authors.map((a, i) => (
+							<>{joiner(i, p.authors.length)}{isMe(a) ? <strong>{display(a)}</strong> : display(a)}</>
+						))}, “{titled(p.title)}” {p.venue && <><em>{p.venue}</em>{p.locator && ` ${p.locator}`} </>}({p.year}){p.doi ? <>, doi: <a class="doi" href={`https://doi.org/${p.doi}`}><code>{p.doi}</code></a>.</> : '.'}
+					</p>
+					{p.keywords.length > 0 && (
+						<ul class="cats" aria-label="Categories">
+							{p.keywords.map((k) => <li><button type="button" data-category={slug(k)}>{k}</button></li>)}
+						</ul>
+					)}
+					<div class="actions">
+						<details class="full">
+							<summary>Full details »</summary>
+							<div class="more">
+								{p.abstract && <><h3>Abstract</h3><p>{p.abstract}</p></>}
+								<h3>BibTeX citation</h3>
+								<pre>{p.bibtex}</pre>
+							</div>
+						</details>
+						{actions(p).map((a) => (
+							<a href={a.href}><SocialIcon name={a.icon} />{a.label}</a>
+						))}
+					</div>
+				</article>
+				))}
+				</div>
+			))}
+		</section>
+	))}
+
+	<div slot="aside" class="side">
+		<nav class="toc" aria-label="Contents">
+			<h2>Contents</h2>
+			<ul>
+				{sections.map((s) => <li><a href={`#${s.id}`}>{s.label}</a></li>)}
+			</ul>
+		</nav>
+		<nav class="toc categories" aria-label="Categories">
+			<h2>Categories</h2>
+			<ul>
+				<li><button type="button" data-category="" aria-pressed="true">all <span>({papers.length})</span></button></li>
+				{categories.map(([k, n]) => (
+					<li><button type="button" data-category={slug(k)} aria-pressed="false">{k} <span>({n})</span></button></li>
+				))}
+			</ul>
+		</nav>
+	</div>
+</Channel>
+
+<script>
+	// Category filter: show only the papers in the chosen category (and hide sections left empty).
+	const buttons = [...document.querySelectorAll<HTMLButtonElement>('button[data-category]')];
+	const filter = (cat: string) => {
+		for (const a of document.querySelectorAll<HTMLElement>('article.paper')) {
+			a.hidden = cat !== '' && !(a.dataset.categories ?? '').split(' ').includes(cat);
+		}
+		for (const g of document.querySelectorAll<HTMLElement>('[data-year-group]')) {
+			g.hidden = !g.querySelector('article.paper:not([hidden])');
+		}
+		for (const s of document.querySelectorAll<HTMLElement>('[data-section]')) {
+			s.hidden = !s.querySelector('article.paper:not([hidden])');
+		}
+		for (const b of document.querySelectorAll<HTMLButtonElement>('.categories button')) {
+			b.setAttribute('aria-pressed', String(b.dataset.category === cat));
+		}
+	};
+	for (const b of buttons) b.addEventListener('click', () => filter(b.dataset.category ?? ''));
+</script>
+
+<style>
+	.intro { margin: 0 0 2rem; font-size: 1.08rem; max-width: var(--measure); }
+	.year-head { margin: 1.25rem 0 0.75rem; font-size: 1.15rem; font-weight: 500; color: var(--ink-soft); border-bottom: 1px solid var(--rule); padding-bottom: 0.2rem; }
+	.paper { margin: 0 0 2rem; padding-left: 0.9rem; border-left: 4px solid #f6dede; }
+	.cite { margin: 0 0 0.35rem; line-height: 1.55; }
+	.cite strong { font-weight: 700; }
+	.doi code { color: var(--accent); background: var(--paper-alt); }
+	.doi:hover { text-decoration: none; }
+	.cats { display: flex; flex-wrap: wrap; gap: 0.15rem 0.9rem; list-style: none; margin: 0 0 0.55rem; padding: 0; }
+	.cats button, .categories button { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+	.cats button { font-size: 0.74rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent); }
+	.cats button:hover { text-decoration: underline; }
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.15rem 0.35rem;
+		align-items: center;
+		background: #f9e6e6;
+		padding: 0 0.4rem 0 0;
+		font-size: 0.95rem;
+	}
+	.actions a, .actions summary {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		padding: 0.25rem 0.6rem;
+		border-radius: 4px;
+		color: var(--accent);
+		cursor: pointer;
+	}
+	.actions a:hover, .actions summary:hover { background: #fff; text-decoration: none; }
+	.actions :global(svg) { width: 1rem; height: 1rem; }
+	details { display: contents; }
+	summary { list-style: none; }
+	summary::-webkit-details-marker { display: none; }
+	.full summary { background: var(--banner); color: #fff; border-radius: 0; padding: 0.5rem 1rem; margin-right: 0.4rem; }
+	.full summary:hover { background: #a3403d; }
+	.more { flex-basis: 100%; order: 10; padding: 0.4rem 1rem 0.8rem; background: #fff; border: 1px solid #f3d3d3; border-top: 0; }
+	.more h3 { margin: 0.6rem 0 0.3rem; font-size: 0.95rem; }
+	.more p { margin: 0; font-size: 0.95rem; }
+	.more pre { margin: 0; font-size: 0.78rem; }
+	.side { display: grid; gap: 1.75rem; }
+	.categories button { color: var(--ink-soft); }
+	.categories button:hover { color: var(--accent); }
+	.categories button span { color: #9a9eab; font-size: 0.85em; }
+	.categories button[aria-pressed='true'] { color: var(--accent); font-weight: 600; }
+	@media (max-width: 900px) {
+		.toc:not(.categories) { display: none; }
+		.categories ul { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; border: 0; padding: 0; }
+		.categories li { margin: 0; }
+	}
+</style>

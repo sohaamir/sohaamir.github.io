@@ -1,0 +1,133 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Channel from '../layouts/Channel.astro';
+import SocialIcon from '../components/SocialIcon.astro';
+import { withBase } from '../lib/url';
+import { socialLinks } from '../lib/socials';
+
+const about = await getEntry('about', 'about');
+if (!about) throw new Error('about entry missing');
+const { Content } = await render(about);
+const profile = (await getEntry('profile', 'aamir'))!.data;
+
+const NEWS_SHOWN = 5;
+const news = await Promise.all(
+	(await getCollection('news'))
+		.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+		.slice(0, NEWS_SHOWN)
+		.map(async (n) => ({ date: n.data.date, Body: (await render(n)).Content })),
+);
+
+const fmt = (d: Date) =>
+	d.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+const iso = (d: Date) => d.toISOString().slice(0, 10);
+
+const socials = socialLinks(profile);
+---
+
+<Channel channel="about" title="about · Aamir Sohail" heading={profile.name} sub={profile.subtitle} photo={profile.photo}>
+	<section class="prose bio" aria-label="Bio">
+		<Content />
+	</section>
+
+	<section aria-labelledby="news">
+		<h2 id="news">News</h2>
+		<table class="news">
+			<tbody>
+				{news.map(({ date, Body }) => (
+					<tr>
+						<th scope="row"><time datetime={iso(date)}>{fmt(date)}</time></th>
+						<td><Body /></td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</section>
+
+	<section aria-labelledby="contact">
+		<h2 id="contact">Contact</h2>
+		<p>Please do not hesitate to contact me if you would like to inquire about opportunities, collaborations, or to just have a chat! I will try to respond to you as soon as I can.</p>
+		<div class="where">
+			<address>
+				<strong>Address</strong><br />
+				Room 110<br />
+				Centre for Human Brain Health<br />
+				School of Psychology<br />
+				University of Birmingham<br />
+				Edgbaston<br />
+				Birmingham<br />
+				United Kingdom<br />
+				B15 2TT
+			</address>
+			<img class="bitmoji" src={withBase('/assets/img/any_questions.png')} alt="Bitmoji of me holding books under the words 'Any questions?'" width="420" height="420" loading="lazy" decoding="async" />
+		</div>
+		<iframe
+			class="map"
+			title="Map: Centre for Human Brain Health, University of Birmingham"
+			src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9725.651522662583!2d-1.9272804!3d52.4535496!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870bde470f7c04d%3A0x583b0469e1755681!2sCentre%20for%20Human%20Brain%20Health!5e0!3m2!1sen!2suk!4v1695917516555!5m2!1sen!2suk"
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+			allowfullscreen></iframe>
+		<form class="contact-form card" action="https://formspree.io/f/xpzgowwz" method="POST">
+			<h3>Send me a message</h3>
+			<div class="row">
+				<label>Your name <input type="text" name="name" autocomplete="name" required /></label>
+				<label>Your email <input type="email" name="email" autocomplete="email" required /></label>
+			</div>
+			<label>Your message <textarea name="message" rows="6" required></textarea></label>
+			<button class="btn" type="submit">Send message</button>
+		</form>
+	</section>
+
+	<aside slot="aside" class="card side" aria-label="Contact">
+		<h2>Contact</h2>
+		<ul class="socials">
+			{socials.map((s) => (
+				<li data-icon={s.icon}>
+					<a href={s.href} aria-label={`${s.label}: ${s.text}`}>
+						<SocialIcon name={s.icon} />
+						<span>{s.text}</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	</aside>
+</Channel>
+
+<style>
+	:global(.page.has-aside) { --aside-width: 19rem; }
+	.bio { max-width: none; }
+	.bio :global(h2:first-child) { margin-top: 0; }
+	.bio :global(img) { float: right; margin: 0 0 1rem 1.5rem; border-radius: var(--radius); max-width: 40%; }
+	/* keep bio text in its own column beside the image, never wrapping underneath it */
+	.bio :global(img ~ p) { margin-right: calc(min(224px, 40%) + 1.5rem); }
+	.side { padding: 1.1rem 1.2rem; }
+	.side h2 { margin: 0 0 0.6rem; padding: 0; border: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
+	.socials { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+	.socials a { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); font-size: 0.88rem; overflow-wrap: normal; }
+	.socials a:hover { color: var(--accent); text-decoration: none; }
+	.socials a :global(svg) { color: var(--nav); }
+	[data-icon='linkedin'] a :global(svg) { color: #0a66c2; }
+	[data-icon='bluesky'] a :global(svg) { color: #0085ff; }
+	address { font-style: normal; line-height: 1.55; }
+	.where { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin: 1rem 0 1.25rem; }
+	.bitmoji { width: 13rem; height: auto; flex: none; }
+	.map { display: block; width: 100%; height: 22rem; margin: 0 0 1.5rem; border: 1px solid var(--rule); border-radius: var(--radius); }
+	.contact-form { padding: 1.1rem 1.25rem 1.25rem; display: grid; gap: 0.8rem; }
+	.contact-form h3 { margin: 0; }
+	.contact-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+	.contact-form label { display: grid; gap: 0.3rem; font-size: 0.92rem; font-weight: 600; color: var(--ink-soft); }
+	.contact-form input, .contact-form textarea { font: inherit; font-weight: 400; color: var(--ink); padding: 0.55rem 0.7rem; border: 1px solid #c9ccd4; border-radius: var(--radius); background: #fff; }
+	.contact-form input:focus, .contact-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+	.contact-form .btn { justify-self: start; border: 0; cursor: pointer; font: inherit; font-weight: 600; }
+	.news { display: table; width: 100%; font-size: 0.97rem; }
+	.news th { width: 8.5rem; font-weight: 600; color: var(--ink-soft); vertical-align: top; white-space: nowrap; }
+	.news td :global(p) { margin: 0; }
+	@media (max-width: 760px) {
+		.contact-form .row { grid-template-columns: 1fr; }
+		.bitmoji { width: 8.5rem; }
+		.bio :global(img ~ p) { margin-right: 0; }
+		.news, .news tbody, .news tr, .news th, .news td { display: block; }
+		.news th { width: auto; white-space: normal; border-bottom: 0; padding-bottom: 0; }
+	}
+</style>

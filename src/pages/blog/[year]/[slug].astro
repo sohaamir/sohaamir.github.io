@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import Channel from '../../../layouts/Channel.astro';
+import { withBase } from '../../../lib/url';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { year: String(post.data.date.getUTCFullYear()), slug: post.id },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const date = post.data.date.toLocaleDateString('en-GB', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+	timeZone: 'UTC',
+});
+---
+
+<Channel channel="blog" title={`${post.data.title} · blog`} heading={post.data.title} sub={post.data.description ?? ''}>
+	<article class="prose">
+		<p class="back"><a href={withBase('/blog/')}>← all posts</a></p>
+		<p class="meta"><time datetime={post.data.date.toISOString().slice(0, 10)}>{date}</time></p>
+		{post.data.tags.length > 0 && <ul class="tags">{post.data.tags.map((t) => <li>{t}</li>)}</ul>}
+		<Content />
+	</article>
+</Channel>
+
+<style>
+	.prose { max-width: var(--measure); }
+	.back { margin: 0 0 0.5rem; font-size: 0.95rem; }
+	.meta { margin: 0 0 0.4rem; font-size: 0.95rem; color: var(--ink-soft); }
+	.tags { display: flex; flex-wrap: wrap; gap: 0.3rem; list-style: none; margin: 0 0 1.5rem; padding: 0; }
+	.tags li { font-size: 0.68rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid #9a9eab; border-radius: 3px; padding: 0.05rem 0.35rem; }
+	.prose :global(img) { display: block; max-width: 100%; height: auto; margin: 1.25rem auto; border-radius: 6px; }
+</style>

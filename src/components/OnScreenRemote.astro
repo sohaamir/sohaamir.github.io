@@ -1,0 +1,58 @@
+---
+import { CHANNELS } from '../lib/channels';
+/**
+ * The on-screen remote for touch (spec §3.6), styled like a Sky remote: number pad plus ⌂. Shown at
+ * the tv beat on coarse-pointer devices only (src/scene/overlays.ts).
+ */
+---
+
+<div class="room-overlay remote-pad" data-room-remote data-testid="on-screen-remote" role="group" aria-label="Remote control">
+	{CHANNELS.map((c, i) => (
+		<button type="button" data-channel={i} aria-label={`${c.num} ${c.label}`}>
+			<span class="num" aria-hidden="true">{c.num}</span>
+			<span class="label" aria-hidden="true">{c.label}</span>
+		</button>
+	))}
+	<button type="button" class="home" data-home aria-label="menu">⌂</button>
+</div>
+
+<style>
+	.remote-pad {
+		position: fixed;
+		left: 50%;
+		bottom: max(1rem, env(safe-area-inset-bottom));
+		transform: translateX(-50%);
+		z-index: 3;
+		width: min(calc(100vw - 2rem), 22rem);
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.5rem;
+		padding: 0.75rem;
+		border-radius: 1.25rem;
+		/* Sky remote: silver face between dark rubber sides. */
+		background: linear-gradient(90deg, #232429 0 0.4rem, #c3c7cd 0.4rem calc(100% - 0.4rem), #232429 0);
+		box-shadow: 0 8px 24px rgb(0 0 0 / 0.35);
+	}
+	.remote-pad button {
+		font: inherit;
+		font-family: var(--screen-font-mono);
+		color: #f4f6fa;
+		background: #2c2d33;
+		border: 0;
+		border-radius: 999px;
+		min-height: 3rem;
+		padding: 0.3rem 0.25rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		line-height: 1.1;
+		touch-action: manipulation;
+		cursor: pointer;
+	}
+	.remote-pad .num { font-size: 1.25rem; font-weight: 700; }
+	.remote-pad .label { font-size: 0.7rem; color: #c9ccd4; }
+	.remote-pad .home { grid-column: 2; font-size: 1.4rem; background: #7f98c0; }
+	.remote-pad button:active { background: #4a4c55; }
+	.remote-pad button:focus-visible { outline: 2px solid #ffd23f; outline-offset: 2px; }
+</style>

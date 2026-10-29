@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { CHANNELS } from '../lib/channels';
+import { withBase } from '../lib/url';
+import '../styles/channel-pages.css';
+---
+
+<Base title="no signal · Aamir Sohail">
+	<main class="nosignal">
+		<h1>NO SIGNAL</h1>
+		<p class="muted">This channel does not exist. Try one of these instead.</p>
+		<ul class="plain-list">
+			{CHANNELS.map((c) => (
+				<li><a href={withBase(c.path)}>CH 0{c.num} · {c.label}</a></li>
+			))}
+		</ul>
+		<p><a class="btn" href={withBase('/')}>Back to the room</a></p>
+	</main>
+</Base>
+
+<style>
+	.nosignal {
+		max-width: 40rem;
+		margin: 0 auto;
+		padding: 4rem 1rem;
+	}
+	h1 { font-family: var(--font-mono); font-size: 2.5rem; letter-spacing: 0.2em; margin: 0 0 0.5rem; color: var(--accent); }
+	.plain-list { margin: 1.5rem 0; }
+	.plain-list > li { margin: 0 0 0.4rem; }
+</style>

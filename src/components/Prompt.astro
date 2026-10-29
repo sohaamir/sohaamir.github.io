@@ -1,0 +1,37 @@
+---
+/**
+ * The beat prompt ("take a seat" / "pick up the remote"). Hidden until the room
+ * script shows it (src/scene/overlays.ts); the button does the same as clicking
+ * the object it names, and the live region announces each new prompt.
+ */
+---
+
+<div class="room-overlay room-prompt" data-room-prompt data-testid="room-prompt" aria-live="polite">
+	<button type="button"></button>
+</div>
+
+<style>
+	.room-prompt {
+		position: fixed;
+		left: 50%;
+		top: 10vh;
+		transform: translateX(-50%);
+		z-index: 2;
+	}
+	.room-prompt button {
+		font: inherit;
+		font-family: var(--screen-font-mono);
+		font-size: 1rem;
+		letter-spacing: 0.04em;
+		color: var(--screen-accent);
+		background: rgb(11 16 38 / 0.6);
+		border: 1px solid rgb(255 207 138 / 0.45);
+		border-radius: 999px;
+		padding: 0.45em 1.2em;
+		cursor: pointer;
+	}
+	.room-prompt button:focus-visible {
+		outline: 2px solid var(--screen-accent);
+		outline-offset: 3px;
+	}
+</style>

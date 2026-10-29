@@ -1,0 +1,185 @@
+---
+import { getCollection } from 'astro:content';
+import { openSync, readSync, closeSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import Channel from '../layouts/Channel.astro';
+import { withBase } from '../lib/url';
+import { inlineMarkdown } from '../lib/inline-md';
+import { byFileOrder } from '../lib/previews';
+
+// R11: originals live in public/ (kept as-is so old URLs work) and are not
+// processed by astro:assets. Read each PNG's intrinsic size from its header so
+// the browser can reserve space, and load lazily.
+function pngSize(file: string): { width: number; height: number } {
+	const fd = openSync(resolve(process.cwd(), 'public/assets/img/gallery', file), 'r');
+	try {
+		const buf = Buffer.alloc(24);
+		readSync(fd, buf, 0, 24, 0);
+		return { width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+	} finally {
+		closeSync(fd);
+	}
+}
+
+// journey.yml is chronological (oldest first); the content store doesn't keep that order, so restore it.
+const ordered = byFileOrder(
+	await getCollection('journey'),
+	readFileSync(resolve(process.cwd(), 'src/content/journey.yml'), 'utf8'),
+);
+const items = ordered.map((e) => ({
+	...e.data,
+	...pngSize(e.data.image),
+	caption: inlineMarkdown(e.data.caption),
+}));
+// Photos-app style: one group per year, oldest first.
+const years = [...new Set(items.map((it) => it.year))].map((year) => ({ year, photos: items.filter((it) => it.year === year) }));
+---
+
+<Channel channel="journey" title="journey · Aamir Sohail">
+	<div class="intro">
+		<p>A collection of pictures reflecting my journey in science and the wonderful people who I met along the way. Or a timeline of male-pattern baldness. However which way you want to look at it.</p>
+	</div>
+	{years.map(({ year, photos }) => (
+		<section class="year" data-year={year}>
+			<h2>
+				<button type="button" class="year-head" aria-expanded="false" aria-controls={`y-${year}`}>
+					<span class="y">{year}</span>
+					<span class="n">{photos.length} {photos.length === 1 ? 'photo' : 'photos'}</span>
+					<span class="chev" aria-hidden="true">›</span>
+				</button>
+			</h2>
+			<ul class="grid" id={`y-${year}`}>
+				{photos.map((it) => (
+					<li>
+						<button type="button" class="photo" aria-label={`Open: ${it.id.replace(/[_-]/g, ' ')}`}>
+							<img
+								src={withBase(`/assets/img/gallery/${it.image}`)}
+								alt={it.id.replace(/[_-]/g, ' ')}
+								width={it.width}
+								height={it.height}
+								loading="lazy"
+								decoding="async"
+							/>
+						</button>
+						<template set:html={it.caption} />
+					</li>
+				))}
+			</ul>
+		</section>
+	))}
+
+	<dialog slot="after" class="lightbox" aria-label="Photo">
+		<figure>
+			<img alt="" />
+			<figcaption></figcaption>
+		</figure>
+		<button type="button" class="nav prev" aria-label="Previous photo">‹</button>
+		<button type="button" class="nav next" aria-label="Next photo">›</button>
+		<button type="button" class="close" aria-label="Close">×</button>
+	</dialog>
+</Channel>
+
+<script>
+	// Year headers zoom a year's grid in and out; photos open in a lightbox with their caption.
+	for (const head of document.querySelectorAll<HTMLButtonElement>('.year-head')) {
+		head.addEventListener('click', () => {
+			const open = head.getAttribute('aria-expanded') !== 'true';
+			head.setAttribute('aria-expanded', String(open));
+			head.closest('.year')?.classList.toggle('zoomed', open);
+		});
+	}
+
+	const dialog = document.querySelector<HTMLDialogElement>('dialog.lightbox')!;
+	const big = dialog.querySelector('img')!;
+	const caption = dialog.querySelector('figcaption')!;
+	const photos = [...document.querySelectorAll<HTMLButtonElement>('.photo')];
+	let at = 0;
+	const show = (i: number) => {
+		at = (i + photos.length) % photos.length;
+		const li = photos[at].closest('li')!;
+		const img = photos[at].querySelector('img')!;
+		big.src = img.currentSrc || img.src;
+		big.alt = img.alt;
+		caption.innerHTML = li.querySelector('template')?.innerHTML ?? '';
+	};
+	photos.forEach((p, i) =>
+		p.addEventListener('click', () => {
+			show(i);
+			dialog.showModal();
+		}),
+	);
+	dialog.querySelector('.prev')!.addEventListener('click', () => show(at - 1));
+	dialog.querySelector('.next')!.addEventListener('click', () => show(at + 1));
+	dialog.querySelector('.close')!.addEventListener('click', () => dialog.close());
+	dialog.addEventListener('click', (e) => {
+		if (e.target === dialog) dialog.close(); // click on the backdrop
+	});
+	// While the lightbox is open its keys are its own: arrows step, Esc closes (not the channel's Esc → TV menu).
+	dialog.addEventListener('keydown', (e) => {
+		e.stopPropagation();
+		if (e.key === 'ArrowLeft') show(at - 1);
+		else if (e.key === 'ArrowRight') show(at + 1);
+	});
+</script>
+
+<style>
+	.intro { margin: 0 0 1.75rem; max-width: var(--measure); }
+	.intro p { margin: 0 0 0.6rem; }
+	.year { margin: 0 0 1.5rem; }
+	.year h2 { margin: 0 0 0.75rem; padding: 0; border: 0; }
+	.year-head {
+		display: flex;
+		align-items: baseline;
+		gap: 0.75rem;
+		width: 100%;
+		padding: 0 0 0.35rem;
+		border: 0;
+		border-bottom: 1px solid var(--rule);
+		background: none;
+		font: inherit;
+		color: var(--ink);
+		cursor: pointer;
+		text-align: left;
+	}
+	.year-head .y { font-size: 1.75rem; font-weight: 600; }
+	.year-head .n { font-size: 0.95rem; color: var(--ink-soft); }
+	.year-head .chev { margin-left: auto; font-size: 1.6rem; color: var(--ink-soft); transition: transform 0.2s ease; }
+	.year-head:hover .y { color: var(--accent); }
+	.zoomed .chev { transform: rotate(90deg); }
+
+	/* Collapsed: a tight mosaic of square thumbnails (the Photos "Years" view). Zoomed: bigger tiles. */
+	.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr)); }
+	.zoomed .grid { gap: 0.6rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); }
+	.photo { display: block; width: 100%; padding: 0; border: 0; background: var(--paper-alt); cursor: zoom-in; aspect-ratio: 1; overflow: hidden; }
+	.zoomed .photo { aspect-ratio: 4 / 3; border-radius: 6px; }
+	.photo img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.25s ease; }
+	.photo:hover img { transform: scale(1.04); }
+
+	.lightbox { max-width: min(92vw, 70rem); width: auto; padding: 0; border: 0; border-radius: 10px; background: #111; color: #eee; overflow: visible; }
+	.lightbox::backdrop { background: rgba(10, 10, 20, 0.82); }
+	.lightbox figure { margin: 0; }
+	.lightbox img { display: block; max-width: 100%; max-height: 78vh; margin: 0 auto; border-radius: 10px 10px 0 0; }
+	.lightbox figcaption { padding: 0.8rem 1.1rem 1rem; font-size: 1rem; line-height: 1.45; }
+	.lightbox figcaption :global(a) { color: #ffb38a; }
+	.lightbox .nav, .lightbox .close {
+		position: absolute;
+		border: 0;
+		background: rgba(0, 0, 0, 0.55);
+		color: #fff;
+		font: inherit;
+		font-size: 1.8rem;
+		line-height: 1;
+		width: 2.6rem;
+		height: 2.6rem;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	.lightbox .nav { top: 40%; }
+	.lightbox .prev { left: 0.6rem; }
+	.lightbox .next { right: 0.6rem; }
+	.lightbox .close { top: 0.6rem; right: 0.6rem; font-size: 1.5rem; }
+	.lightbox .nav:hover, .lightbox .close:hover { background: rgba(0, 0, 0, 0.8); }
+	@media (prefers-reduced-motion: reduce) {
+		.photo img, .chev { transition: none; }
+	}
+</style>

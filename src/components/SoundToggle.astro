@@ -1,0 +1,35 @@
+---
+/** Speaker toggle for the TV-on sound: muted by default (src/scene/sound.ts). */
+---
+
+<button type="button" class="sound-toggle" data-room-sound aria-pressed="false" aria-label="sound" title="sound">
+	<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" stroke="none" />
+		<path class="on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" />
+		<path class="off" d="M17 9l5 6M22 9l-5 6" />
+	</svg>
+</button>
+
+<style>
+	.sound-toggle {
+		position: fixed;
+		top: 0.75rem;
+		left: 0.75rem;
+		z-index: 3;
+		display: grid;
+		place-items: center;
+		width: 2.5rem;
+		height: 2.5rem;
+		color: var(--screen-muted);
+		background: rgb(11 16 38 / 0.5);
+		border: 1px solid transparent;
+		border-radius: 999px;
+		cursor: pointer;
+	}
+	.sound-toggle:hover,
+	.sound-toggle:focus-visible { color: var(--screen-accent); border-color: rgb(255 207 138 / 0.45); }
+	.sound-toggle:focus-visible { outline: 2px solid var(--screen-accent); outline-offset: 2px; }
+	.sound-toggle .on { display: none; }
+	.sound-toggle[aria-pressed='true'] .on { display: inline; }
+	.sound-toggle[aria-pressed='true'] .off { display: none; }
+</style>

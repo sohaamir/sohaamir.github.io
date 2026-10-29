@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+import Prompt from '../components/Prompt.astro';
+import SkipLink from '../components/SkipLink.astro';
+import OnScreenRemote from '../components/OnScreenRemote.astro';
+import SoundToggle from '../components/SoundToggle.astro';
+import NoWebGL from '../components/NoWebGL.astro';
+import { TV_BLUE } from '../lib/previews';
+---
+
+<Base title="Aamir Sohail" description="Aamir Sohail: a living room at night. Sit down, pick up the remote, and flick through the channels.">
+	<script is:inline>
+		// Returning to the menu (?tv=1): hide the arrive-only skip link before first paint.
+		if (new URLSearchParams(location.search).get('tv') === '1') document.documentElement.classList.add('room-at-tv');
+	</script>
+	<h1 class="sr-only">Aamir Sohail</h1>
+	<SkipLink />
+	<SoundToggle />
+	<canvas id="room" aria-label="A dim living room at night: a couch, a coffee table and a TV that is switched off."></canvas>
+	<NoWebGL />
+	<Prompt />
+	<OnScreenRemote />
+	<div class="dive-overlay" data-dive-overlay data-testid="dive-overlay" aria-hidden="true" style={`background:${TV_BLUE}`}></div>
+	<script>
+		import { start } from '../scene/main';
+		import { showNoWebGL } from '../scene/fallback';
+		// Any scene-setup failure (not only a missing WebGL) leaves the 2D menu instead of a dead page.
+		start(document.getElementById('room') as HTMLCanvasElement).catch((err: unknown) => {
+			console.warn('Room scene failed; showing the 2D menu.', err);
+			showNoWebGL();
+		});
+	</script>
+</Base>
+
+<style>
+	:global(body) {
+		overflow: hidden;
+	}
+	#room {
+		position: fixed;
+		inset: 0;
+		display: block;
+		width: 100vw;
+		height: 100vh;
+	}
+	/* The dive's fade to the screen's blue (src/scene/dive.ts); Channel.astro fades in from it. */
+	.dive-overlay {
+		position: fixed;
+		inset: 0;
+		z-index: 10;
+		opacity: 0;
+		pointer-events: none;
+	}
+	:global(html.room-at-tv [data-room-skip]) {
+		display: none;
+	}
+	/* Beat overlays fade with the beat; hidden ones are also out of the tab order. */
+	:global(.room-overlay) {
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+	}
+	:global(.room-overlay[data-show]) {
+		opacity: 1;
+		visibility: visible;
+		transition: opacity 0.4s ease, visibility 0s;
+	}
+	@media (prefers-reduced-motion: reduce) {
+		:global(.room-overlay),
+		:global(.room-overlay[data-show]) {
+			transition: none;
+		}
+	}
+</style>

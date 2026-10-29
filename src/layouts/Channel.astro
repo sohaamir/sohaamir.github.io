@@ -1,0 +1,181 @@
+---
+import { getEntry } from 'astro:content';
+import Base from './Base.astro';
+import SocialIcon from '../components/SocialIcon.astro';
+import { CHANNELS, type Channel } from '../lib/channels';
+import { withBase } from '../lib/url';
+import { socialLinks } from '../lib/socials';
+import { TV_BLUE } from '../lib/previews';
+import '../styles/channel-pages.css';
+
+interface Props {
+	channel: Channel['slug'];
+	title: string;
+	/** Banner heading; defaults to the channel's label. */
+	heading?: string;
+	/** Banner subtitle; defaults to the channel's one-line summary. */
+	sub?: string;
+	/** Optional portrait at the right of the banner (site-relative path). */
+	photo?: string;
+	/** Banner colour (defaults to the brick red --banner). */
+	banner?: string;
+}
+const { channel: slug, title, heading, sub, photo, banner } = Astro.props;
+
+// Jost, self-hosted (public/assets/fonts, from Google Fonts, SIL OFL): the font of andrewheiss.com.
+const face = (file: string, style: string, range: string) =>
+	`@font-face{font-family:'Jost';font-style:${style};font-weight:300 700;font-display:swap;src:url(${withBase(`/assets/fonts/${file}`)}) format('woff2');unicode-range:${range}}`;
+const LATIN = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD';
+const LATIN_EXT = 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF';
+const fontFaces = [
+	face('jost-latin.woff2', 'normal', LATIN),
+	face('jost-latin-ext.woff2', 'normal', LATIN_EXT),
+	face('jost-italic-latin.woff2', 'italic', LATIN),
+	face('jost-italic-latin-ext.woff2', 'italic', LATIN_EXT),
+].join('');
+const current = CHANNELS.find((c) => c.slug === slug);
+if (!current) throw new Error(`Unknown channel: ${slug}`);
+const subtitle = sub ?? current.blurb;
+const badge = `CH ${String(current.num).padStart(2, '0')} · ${current.label}`;
+const hasAside = Astro.slots.has('aside');
+
+const profile = (await getEntry('profile', 'aamir'))!.data;
+const socials = socialLinks(profile);
+---
+
+<Base title={title}>
+	<link rel="preload" href={withBase('/assets/fonts/jost-latin.woff2')} as="font" type="font/woff2" crossorigin />
+	<style is:inline set:html={fontFaces}></style>
+	<div class="tv-fade" aria-hidden="true" style={`background:${TV_BLUE}`}></div>
+	<header class="navbar">
+		<div class="nav-inner">
+			<a class="brand" href={withBase('/about/')}>Aamir Sohail</a>
+			<span class="badge">{badge}</span>
+			<nav class="links" aria-label="Channel strip">
+				{CHANNELS.map((c) => (
+					<a href={withBase(c.path)} aria-current={c.slug === slug ? 'page' : undefined}>{c.label}</a>
+				))}
+				<a class="room" href={withBase('/?tv=1')} title="Back to the TV menu (Esc)">⌂ room</a>
+			</nav>
+			<ul class="icons" aria-label="Elsewhere">
+				{socials.map((s) => (
+					<li><a href={s.href} aria-label={s.label} title={s.label}><SocialIcon name={s.icon} mono /></a></li>
+				))}
+			</ul>
+		</div>
+	</header>
+	<header class="page-head" style={banner ? `background:${banner}` : undefined}>
+		<div class:list={['page-head-inner', { 'with-photo': photo }]}>
+			<div>
+				<h1 class="page-title">{heading ?? current.label}</h1>
+				{subtitle && <p class="page-sub">{subtitle}</p>}
+			</div>
+			{photo && <img class="portrait" src={withBase(photo)} alt={`Photo of ${profile.name}`} width="394" height="480" decoding="async" />}
+		</div>
+	</header>
+	<div class:list={['page', { 'has-aside': hasAside }]}>
+		<main>
+			<slot />
+		</main>
+		{hasAside && <aside class="side"><slot name="aside" /></aside>}
+	</div>
+	<slot name="after" />
+	<footer class="foot">
+		<span>© {new Date().getFullYear()} Aamir Sohail<span class="sep" aria-hidden="true">|</span>Website built with <a href="https://astro.build/">Astro</a> and <a href="https://threejs.org/">Three.js</a>, and vibe-coded using <a href="https://claude.com/product/claude-code">Claude</a></span>
+		<a href={withBase('/?tv=1')}>back to the living room</a>
+	</footer>
+	<script>
+		import { attachChannelKeys } from '../scripts/channel-keys';
+		attachChannelKeys();
+	</script>
+</Base>
+
+<style>
+	/* Arriving through the TV glass: start on the screen's blue (src/scene/dive.ts) and fade in. Pure CSS. */
+	.tv-fade {
+		position: fixed;
+		inset: 0;
+		z-index: 10;
+		pointer-events: none;
+		opacity: 0;
+		animation: tv-fade-in 0.5s ease-out;
+	}
+	@keyframes tv-fade-in {
+		from { opacity: 1; }
+		to { opacity: 0; }
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.tv-fade { animation-duration: 0.15s; }
+	}
+	.navbar {
+		position: sticky;
+		top: 0;
+		z-index: 5;
+		background: var(--nav);
+		color: var(--nav-ink);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+	.nav-inner {
+		padding: 0.65rem 1.75rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem 1rem;
+	}
+	.brand { font-size: 1.2rem; font-weight: 500; color: #fff; }
+	.brand:hover { color: #fff; text-decoration: none; opacity: 0.85; }
+	.badge {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		font-weight: 700;
+		color: var(--nav);
+		background: #ffcf8a; /* the TV menu's amber highlight */
+		padding: 0.1rem 0.45rem;
+		border-radius: 4px;
+	}
+	.links { display: flex; flex-wrap: wrap; gap: 0.1rem 0.15rem; font-size: 1rem; }
+	.links a { color: var(--nav-soft); padding: 0.25rem 0.55rem; border-radius: 4px; }
+	.links a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); text-decoration: none; }
+	.links a[aria-current='page'] { color: #fff; font-weight: 600; background: rgba(255, 255, 255, 0.12); }
+	.links .room { color: #ffcf8a; }
+	.icons { margin: 0 0 0 auto; padding: 0; list-style: none; display: flex; gap: 0.25rem; }
+	.icons a { display: block; padding: 0.35rem; color: var(--nav-soft); border-radius: 4px; }
+	.icons a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+	.icons :global(svg) { width: 1.15rem; height: 1.15rem; }
+	.with-photo { display: flex; align-items: center; gap: clamp(1.5rem, 100vw - 52rem, 26rem); /* ≈11 cm after the subtitle; shrinks on narrow screens */ padding-top: 1.75rem; padding-bottom: 1.75rem; }
+	.portrait { width: 9.5rem; height: auto; border-radius: 8px; border: 3px solid rgba(255, 255, 255, 0.85); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); flex: none; }
+	.page {
+		max-width: var(--wide);
+		margin: 0 auto;
+		padding: 2.25rem 1.25rem 3.5rem;
+		overflow-wrap: anywhere;
+	}
+	.page.has-aside { display: grid; grid-template-columns: minmax(0, 1fr) var(--aside-width, 15rem); gap: 3rem; align-items: start; }
+	.side { position: sticky; top: 5rem; }
+	.foot {
+		max-width: var(--wide);
+		margin: 0 auto;
+		padding: 1.5rem 1.25rem 2rem;
+		border-top: 1px solid var(--rule);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--ink-soft);
+	}
+	.sep { margin: 0 0.6rem; color: #9a9eab; }
+	@media (max-width: 900px) {
+		.page.has-aside { grid-template-columns: 1fr; gap: 1.5rem; }
+		.side { position: static; }
+	}
+	@media (max-width: 600px) {
+		.navbar { position: static; }
+		.links { width: 100%; }
+		.icons { margin-left: 0; }
+		.page-head-inner { padding: 1.75rem 1.25rem 2rem; }
+		.page-title { font-size: 2rem; }
+		.portrait { width: 6rem; }
+		.with-photo { gap: 1rem; }
+	}
+</style>

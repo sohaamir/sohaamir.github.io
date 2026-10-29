@@ -1,0 +1,141 @@
+---
+import { existsSync } from 'node:fs';
+import { getCollection } from 'astro:content';
+import Channel from '../../layouts/Channel.astro';
+import { withBase } from '../../lib/url';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const year = (d: Date) => d.getUTCFullYear();
+const years = [...new Set(posts.map((p) => year(p.data.date)))];
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const href = (p: (typeof posts)[number]) => withBase(`/blog/${year(p.data.date)}/${p.id}/`);
+/** Small JPEG made from the post's first figure (public/assets/img/posts/thumbs/<id>.jpg), if there is one. */
+const thumb = (id: string) =>
+	existsSync(`public/assets/img/posts/thumbs/${id}.jpg`) ? withBase(`/assets/img/posts/thumbs/${id}.jpg`) : null;
+
+/** Tags with counts, A–Z, as the sidebar's categories. */
+const slug = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+const counts = new Map<string, { label: string; n: number }>();
+for (const p of posts) for (const t of p.data.tags) {
+	const c = counts.get(slug(t)) ?? { label: t.toLowerCase(), n: 0 };
+	c.n++;
+	counts.set(slug(t), c);
+}
+const categories = [...counts].sort((a, b) => a[1].label.localeCompare(b[1].label));
+---
+
+<Channel channel="blog" title="blog · Aamir Sohail" heading="Blog" sub="">
+	<p class="intro">Blog posts, tutorials and life updates that I sporadically write about.</p>
+	{years.map((y) => (
+		<section id={`y${y}`} aria-labelledby={`h-${y}`} data-year>
+			<h2 id={`h-${y}`} class="year-head">{y}</h2>
+			{posts.filter((p) => year(p.data.date) === y).map((p) => {
+				const img = thumb(p.id);
+				return (
+					<article class:list={['post', { 'has-thumb': img }]} data-categories={p.data.tags.map(slug).join(' ')}>
+						<time datetime={p.data.date.toISOString().slice(0, 10)}>{fmt(p.data.date)}</time>
+						<div class="body">
+							<h3><a href={href(p)}>{p.data.title}</a></h3>
+							{p.data.tags.length > 0 && (
+								<ul class="tags" aria-label="Categories">
+									{p.data.tags.map((t) => <li><button type="button" data-category={slug(t)}>{t}</button></li>)}
+								</ul>
+							)}
+							{p.data.description && <p class="desc">{p.data.description}</p>}
+						</div>
+						{img && <a class="thumb" href={href(p)} tabindex="-1" aria-hidden="true"><img src={img} alt="" width="250" height="150" loading="lazy" decoding="async" /></a>}
+					</article>
+				);
+			})}
+		</section>
+	))}
+
+	<div slot="aside" class="side">
+		<nav class="toc years" aria-label="Year">
+			<h2>Year</h2>
+			<ul>
+				{years.map((y, i) => <li><a href={`#y${y}`} aria-current={i === 0 ? 'true' : undefined}>{y}</a></li>)}
+			</ul>
+		</nav>
+		<nav class="toc categories" aria-label="Categories">
+			<h2>Categories</h2>
+			<ul>
+				<li><button type="button" data-category="" aria-pressed="true">All <span>({posts.length})</span></button></li>
+				{categories.map(([k, c]) => (
+					<li><button type="button" data-category={k} aria-pressed="false">{c.label} <span>({c.n})</span></button></li>
+				))}
+			</ul>
+		</nav>
+	</div>
+</Channel>
+
+<script>
+	// Category filter: show only the posts with the chosen tag (and hide years left empty).
+	const filter = (cat: string) => {
+		for (const a of document.querySelectorAll<HTMLElement>('article.post')) {
+			a.hidden = cat !== '' && !(a.dataset.categories ?? '').split(' ').includes(cat);
+		}
+		for (const s of document.querySelectorAll<HTMLElement>('[data-year]')) {
+			s.hidden = !s.querySelector('article.post:not([hidden])');
+		}
+		for (const b of document.querySelectorAll<HTMLButtonElement>('.categories button')) {
+			b.setAttribute('aria-pressed', String(b.dataset.category === cat));
+		}
+	};
+	for (const b of document.querySelectorAll<HTMLButtonElement>('button[data-category]')) {
+		b.addEventListener('click', () => filter(b.dataset.category ?? ''));
+	}
+
+	// Year list follows the scroll: the year whose heading was passed last is current.
+	const links = [...document.querySelectorAll<HTMLAnchorElement>('.years a')];
+	const sections = [...document.querySelectorAll<HTMLElement>('[data-year]')];
+	const spy = () => {
+		let current = sections[0];
+		for (const s of sections) if (!s.hidden && s.getBoundingClientRect().top < 140) current = s;
+		for (const a of links) a.toggleAttribute('aria-current', a.hash === `#${current?.id}`);
+	};
+	addEventListener('scroll', spy, { passive: true });
+</script>
+
+<style>
+	.intro { margin: 0 0 2rem; font-size: 1.08rem; max-width: var(--measure); }
+	.year-head { margin: 0 0 1.25rem; padding-bottom: 0.4rem; font-size: 1.8rem; font-weight: 600; border-bottom: 1px solid var(--rule); }
+	section + section { margin-top: 2.5rem; }
+	.post { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0 1.1rem; margin: 0 0 2rem; }
+	.post.has-thumb { grid-template-columns: 5.5rem minmax(0, 1fr) 15.5rem; }
+	time { text-align: right; font-size: 0.88rem; color: var(--ink-soft); padding-top: 0.35rem; line-height: 1.4; }
+	.post h3 { margin: 0 0 0.4rem; font-size: 1.3rem; font-weight: 400; line-height: 1.3; }
+	.tags { display: flex; flex-wrap: wrap; gap: 0.3rem; list-style: none; margin: 0 0 0.45rem; padding: 0; }
+	.tags button {
+		font: inherit;
+		font-size: 0.68rem;
+		letter-spacing: 0.03em;
+		text-transform: uppercase;
+		color: var(--ink-soft);
+		background: none;
+		border: 1px solid #9a9eab;
+		border-radius: 3px;
+		padding: 0.05rem 0.35rem;
+		cursor: pointer;
+	}
+	.tags button:hover { color: var(--accent); border-color: var(--accent); }
+	.desc { margin: 0; font-size: 0.98rem; color: var(--ink); }
+	.thumb img { display: block; width: 100%; height: 9.5rem; object-fit: cover; }
+	.side { display: grid; gap: 1.75rem; max-height: calc(100vh - 7rem); overflow-y: auto; }
+	.toc button { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; color: var(--ink-soft); }
+	.toc button:hover, .years a:hover { color: var(--accent); }
+	.toc button span { color: #9a9eab; font-size: 0.85em; }
+	.toc button[aria-pressed='true'], .years a[aria-current] { color: var(--accent); }
+	.years a { color: var(--ink-soft); }
+	@media (max-width: 900px) {
+		.side { max-height: none; overflow: visible; }
+		.years { display: none; }
+		.categories ul { display: flex; flex-wrap: wrap; gap: 0.2rem 0.9rem; border: 0; padding: 0; }
+		.categories li { margin: 0; }
+	}
+	@media (max-width: 700px) {
+		.post, .post.has-thumb { grid-template-columns: 1fr; }
+		time { text-align: left; padding: 0 0 0.2rem; }
+		.thumb { order: -1; margin-bottom: 0.6rem; }
+	}
+</style>

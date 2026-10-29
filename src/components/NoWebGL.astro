@@ -1,0 +1,94 @@
+---
+import { withBase } from '../lib/url';
+/**
+ * No-WebGL fallback (spec 3.7): a still of the room above the Channels menu.
+ * The menu itself is the always-present nav from Base.astro (one nav, one label);
+ * html.no-webgl (src/scene/fallback.ts) un-hides it and styles it as a 2D TV menu.
+ */
+---
+
+<figure class="nowebgl-still" data-testid="room-still-wrap">
+	<img
+		data-testid="room-still"
+		src={withBase('/img/room-still.webp')}
+		alt="A dim living room at night: a couch and a coffee table facing a TV that shows the channel menu."
+		width="1280"
+		height="800"
+		loading="lazy"
+	/>
+</figure>
+
+<style is:global>
+	.nowebgl-still {
+		display: none;
+	}
+	html.no-webgl body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem;
+		overflow: auto;
+		min-height: 100vh;
+	}
+	html.no-webgl #room,
+	html.no-webgl .room-overlay,
+	html.no-webgl [data-room-sound],
+	html.no-webgl [data-testid='on-screen-remote'],
+	html.no-webgl [data-dive-overlay] {
+		display: none !important;
+	}
+	html.no-webgl .nowebgl-still {
+		display: block;
+		order: 1;
+		margin: 0;
+		width: 100%;
+		max-width: 52rem;
+	}
+	html.no-webgl .nowebgl-still img {
+		display: block;
+		width: 100%;
+		height: auto;
+		border-radius: 0.5rem;
+	}
+	html.no-webgl body > nav[aria-label='Channels'] {
+		position: static;
+		width: 100%;
+		max-width: 52rem;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		clip: auto;
+		white-space: normal;
+		order: 2;
+		padding: 1rem 1.25rem;
+		background: var(--screen-bg-raised);
+		border: 1px solid var(--screen-border);
+		border-radius: 0.5rem;
+		font-family: var(--screen-font-mono);
+	}
+	html.no-webgl body > nav[aria-label='Channels'] ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	html.no-webgl body > nav[aria-label='Channels'] li {
+		counter-increment: channel;
+	}
+	html.no-webgl body > nav[aria-label='Channels'] li::before {
+		content: counter(channel) '  ';
+		color: var(--screen-muted);
+	}
+	html.no-webgl body > nav[aria-label='Channels'] ul {
+		counter-reset: channel;
+	}
+	html.no-webgl body > nav[aria-label='Channels'] a {
+		display: inline-block;
+		padding: 0.3em 0.2em;
+		text-decoration: none;
+	}
+	html.no-webgl body > nav[aria-label='Channels'] a:hover,
+	html.no-webgl body > nav[aria-label='Channels'] a:focus-visible {
+		text-decoration: underline;
+	}
+</style>

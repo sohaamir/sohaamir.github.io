@@ -1,0 +1,128 @@
+- id: chemistry
+  image: chemistry.png
+  caption: "As a (relatively) young upstart in my Sixth Form chemistry class. At the back as usual"
+  year: 2013
+- id: imperial_dinner
+  image: imperial_dinner.png
+  caption: "First year at Imperial (just off camera)"
+  year: 2014
+- id: imperial_house
+  image: imperial_house.png
+  caption: "Completely oblivious to the fact that I am blocking Rohan out of the group photo at Kaiji's"
+  year: 2014
+- id: imperial_gang
+  image: imperial_gang.png
+  caption: "With the undergrad gang: Shuntaro, [Saloni](https://ourworldindata.org/team/saloni-dattani), [Rohan](https://www.researchgate.net/profile/Rohan_Pancharatnam), Jenny, Kaiji and [Susan](https://connects.catalyst.harvard.edu/Profiles/display/Person/204613)."
+  year: 2014
+- id: imperial_susan
+  image: imperial_susan.png
+  caption: "Not sure what emotion Susan is conveying here"
+  year: 2014
+- id: imperial_hyde
+  image: imperial_hyde.png
+  caption: "At Winter Wonderland in Hyde Park"
+  year: 2014
+- id: imperial_ice_cream
+  image: imperial_ice_cream.png
+  caption: "Celebrating the end of final-year exams with ice cream!"
+  year: 2016
+- id: rohan
+  image: rohan.png
+  caption: "ROHAN ANGRY."
+  year: 2016
+- id: imperial_class
+  image: imperial_class.png
+  caption: "The Biomed Class of 2016. Still at the back"
+  year: 2016
+- id: imperial_graduation
+  image: imperial_graduation.png
+  caption: "Suffering through three years of pain to graduate with £50k+ worth of debt"
+  year: 2016
+- id: nottingham
+  image: nottingham.png
+  caption: "'Why did I do this to myself again'"
+  year: 2018
+- id: reading_emotions
+  image: reading_emotions.png
+  caption: "Reading Emotions 2023"
+  year: 2023
+- id: reading_bridge
+  image: reading_bridge.png
+  caption: "Caversham Bridge with Paola Calabrese, [Nico](https://twitter.com/ioNicoBia) and Thalia"
+  year: 2023
+- id: reading_rich
+  image: reading_rich.png
+  caption: "Another gaming sesh with Zola, Rich, Thalia, Gabs, [Anthony](https://twitter.com/AnthonyHaffey), Brendan, [Simon](https://twitter.com/simonbrett1294) and Izzy"
+  year: 2023
+- id: reading_rich_two
+  image: reading_rich_two.png
+  caption: "Cheers! At [Rich](https://twitter.com/RHarrisonCINN) and Zola's with Thalia, [Gabs](https://twitter.com/GmkRossetti), [Brendan](https://twitter.com/neuroBren) and Izzy"
+  year: 2023
+- id: reading_ecr
+  image: reading_ecr.png
+  caption: "Finally graduated to the front (Reading ECR Conference 2023)"
+  year: 2023
+- id: reading_mri
+  image: reading_mri.png
+  caption: "In my natural habitat"
+  year: 2023
+- id: reading_goodbye
+  image: reading_goodbye.png
+  caption: "The Last Supper"
+  year: 2023
+- id: mrc_aim
+  image: mrc_aim.png
+  caption: "First group photo with the MRC AIM DTP 2023 cohort"
+  year: 2023
+- id: mrc_lunch
+  image: mrc_lunch.png
+  caption: "Nice fancy lunch with the MRC AIM bunch"
+  year: 2023
+- id: reading_return_meal
+  image: reading_return_meal.png
+  caption: "Returning to Reading with Lei"
+  year: 2024
+- id: reading_return
+  image: reading_return.png
+  caption: "With two great mentors, [Lei](https://www.birmingham.ac.uk/staff/profiles/psychology/zhang-lei) and [Anastasia](https://anastasia.christakou.org/)"
+  year: 2024
+- id: cmmc
+  image: cmmc.png
+  caption: "Attending the [CMMC Summer School](https://sites.uci.edu/cmmc/) 2024 in Hinterstoder, Austria"
+  year: 2024
+- id: cluny
+  image: cluny.png
+  caption: "[Neurobridges](https://neurobridges.net/) 2024 in Cluny, France"
+  year: 2024
+- id: misinformation_event
+  image: misinformation_event.png
+  caption: "Hosting a panel discussion on misinformation in London and reuniting with Saloni after almost 10 years!"
+  year: 2025
+- id: alpn_lab_2025
+  image: alpn_lab_2025.png
+  caption: "ALPN Lab's joint Christmas meeting with the DCP Lab from Tübingen!"
+  year: 2025
+- id: paul_celebration
+  image: paul_celebration.jpeg
+  caption: "Celebrating Paul's viva!"
+  year: 2026
+- id: sdn_lab_retreat_2026
+  image: sdn_lab_retreat_2026.jpeg
+  caption: "SDN lab retreat in Stratford-upon-Avon!"
+  year: 2026
+- id: alpn_escan_2026
+  image: alpn_escan_2026.jpeg
+  caption: "Attending [ESCAN 2026](https://escaneurosci.eu/) in Rome with the ALPN Lab!"
+  year: 2026
+- id: sne_group_photo
+  image: sne_group_photo.jpeg
+  caption: "Group photo at SNE 2026 with members of the [Gluth Lab](https://www.psy.uni-hamburg.de/en/arbeitsbereiche/kognitive-modellierung-und-neurowissenschaften-des-entscheidens.html) from Hamburg!"
+  year: 2026
+- id: poldrack_lab_retreat
+  image: poldrack_lab_retreat.jpeg
+  caption: "[Poldrack lab](https://www.poldracklab.org/) retreat at the Hidden Villa!"
+  year: 2026
+- id: pascl_group_photo
+  image: pascl_group_photo.jpeg
+  caption: "Giving my first invited talk to the [Politics and Social Change Lab (PASCL)](https://www.pascl.stanford.edu/) at Stanford!"
+  year: 2026

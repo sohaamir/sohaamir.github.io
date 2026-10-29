@@ -1,0 +1,78 @@
+/*
+ * Shared styles for channel pages (imported by each page), after andrewheiss.com:
+ * a dark navbar with icon links, a full-width title banner, then a wide white
+ * page with an optional right-hand contents column. The room's TV theme survives
+ * in the channel badge and the fade-in from the screen.
+ */
+:root {
+	--paper: #ffffff;
+	--paper-alt: #f6f6f8;
+	--ink: #1d1f24;
+	--ink-soft: #5b6070;
+	--rule: #e2e3e8;
+	--nav: #1d4446; /* deep teal navbar, the complement of the banner red */
+	--nav-ink: #f0f7f7;
+	--nav-soft: #c3dcdc;
+	--banner: #be4f4c; /* brick red title banner */
+	--banner-soft: #fbe3e2;
+	--accent: #c2451e; /* burnt orange links (5:1 on white) */
+	--accent-dark: #9c3414;
+	--accent-soft: #fbece5;
+	--font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+	--font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+	--measure: 75ch;
+	--wide: 76rem;
+	--radius: 6px;
+}
+
+html body {
+	background: var(--paper);
+	color: var(--ink);
+	font-family: var(--font-sans);
+	font-size: 1.125rem;
+	line-height: 1.6;
+	font-weight: 400;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); text-decoration: underline; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+/* Title banner: page title + the channel's one-line summary, in brick red under the teal navbar. */
+.page-head { background: var(--banner); color: #fff; }
+.page-head-inner { max-width: var(--wide); margin: 0 auto; padding: 2.5rem 1.25rem 2.75rem; }
+.page-title { margin: 0; font-size: 2.6rem; line-height: 1.15; font-weight: 500; letter-spacing: -0.01em; color: #fff; }
+.page-sub { margin: 0.6rem 0 0; color: var(--banner-soft); font-size: 1.15rem; max-width: var(--measure); }
+
+main h2 { margin: 2.5rem 0 0.9rem; padding-bottom: 0.35rem; font-size: 1.75rem; font-weight: 500; border-bottom: 1px solid var(--rule); }
+main h3 { margin: 1.5rem 0 0.5rem; font-size: 1.15rem; }
+main img { max-width: 100%; height: auto; }
+main pre { overflow-x: auto; max-width: 100%; font-family: var(--font-mono); font-size: 0.85rem; line-height: 1.5; background: var(--paper-alt); border: 1px solid var(--rule); padding: 0.85rem 1rem; border-radius: var(--radius); white-space: pre-wrap; overflow-wrap: anywhere; }
+main code { font-family: var(--font-mono); font-size: 0.88em; overflow-wrap: anywhere; }
+main :not(pre) > code { background: var(--paper-alt); padding: 0.1em 0.35em; border-radius: 4px; }
+main table { display: block; max-width: 100%; overflow-x: auto; border-collapse: collapse; }
+main th, main td { padding: 0.45rem 0.75rem; border-bottom: 1px solid var(--rule); text-align: left; }
+main iframe, main video { max-width: 100%; }
+main blockquote { margin: 1rem 0; padding: 0.25rem 1rem; border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 var(--radius) var(--radius) 0; }
+
+.muted { color: var(--ink-soft); }
+.plain-list { list-style: none; margin: 0; padding: 0; }
+.plain-list > li { margin: 0 0 1rem; }
+
+.btn { display: inline-block; padding: 0.55rem 1.1rem; border-radius: var(--radius); background: var(--accent); color: #fff; font-weight: 600; }
+.btn:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
+
+/* Raised cards for list-like content. */
+.card { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: 0 1px 2px rgba(29, 31, 36, 0.06); }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: 1.25rem; list-style: none; margin: 0; padding: 0; }
+
+/* Right-hand "Contents" column (sticky), as on andrewheiss.com. */
+.toc { font-size: 0.95rem; }
+.toc h2 { margin: 0 0 0.5rem; padding: 0; border: 0; font-size: 1rem; font-weight: 600; }
+.toc ul { list-style: none; margin: 0; padding: 0 0 0 0.75rem; border-left: 1px solid var(--rule); }
+.toc li { margin: 0.3rem 0; }
+.toc a { color: var(--ink-soft); }
+.toc a:hover { color: var(--accent); text-decoration: none; }
+
+/* Readable article column (about bio). */
+.prose { max-width: var(--measure); }
+.prose p, .prose ul, .prose ol { margin: 0 0 1rem; }

@@ -1,0 +1,44 @@
+- id: aamir
+  name: Aamir Sohail
+  subtitle: "Social learning ⎟ Bayesian modeling ⎟ Artificial intelligence"
+  photo: /assets/img/profile.jpg
+  email: aamir@sohamir.org
+  socials:
+    github: sohaamir
+    bluesky: aamirsohail.bsky.social
+    x: AamirNSohail
+    linkedin: aamir-sohail-3a42b9293
+    orcid: 0009-0000-6584-4579
+    researchgate: Aamir-Sohail-30
+    osf: ya4td
+  # From the CV (academic_cvs/helvetica_neue_latex_cv: education.tex, employment.tex).
+  education:
+    - institution: University of Birmingham
+      degree: PhD Psychology
+      years: 2023–2027
+      logo: /assets/img/birmingham.png
+    - institution: Stanford University
+      degree: Visiting Student Researcher
+      years: ""
+      logo: ""
+    - institution: University of Nottingham
+      degree: MSc Brain Imaging (First-class honours)
+      years: 2017–2018
+      logo: /assets/img/nottingham.svg
+    - institution: Imperial College London
+      degree: BSc Biomedical Science (Upper second-class honours)
+      years: 2013–2016
+      logo: /assets/img/imperial.svg
+  experience:
+    - role: Post Graduate Teaching Assistant
+      place: School of Psychology, University of Birmingham
+      years: Dec 2023 – Mar 2026
+    - role: MR Scanner Operator
+      place: Centre for Human Brain Health, University of Birmingham
+      years: Jul 2024 – Sep 2025
+    - role: CINN Operations Support
+      place: School of Psychology and Clinical Language Sciences, University of Reading
+      years: Oct 2021 – Sep 2023
+    - role: Junior Research Fellow
+      place: School of Psychology and Clinical Language Sciences, University of Reading
+      years: Apr 2021 – Oct 2021

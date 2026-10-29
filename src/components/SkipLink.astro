@@ -1,0 +1,28 @@
+---
+import { withBase } from '../lib/url';
+/** "skip to site →": shown at beat arrive (and before the room script runs), goes to About. */
+---
+
+<a class="room-overlay skip-link" data-room-skip data-show href={withBase('/about/')}>skip to site →</a>
+
+<style>
+	.skip-link {
+		position: fixed;
+		top: 1rem;
+		right: 1rem;
+		z-index: 2;
+		font-family: var(--screen-font-mono);
+		font-size: 0.9rem;
+		color: var(--screen-text);
+		text-decoration: none;
+		padding: 0.35em 0.8em;
+		/* A dark pill: the room is bright now, so bare text would vanish against the wall. */
+		background: rgba(15, 26, 48, 0.82);
+		border-radius: 999px;
+	}
+	.skip-link:hover,
+	.skip-link:focus-visible {
+		color: var(--screen-accent);
+		text-decoration: underline;
+	}
+</style>

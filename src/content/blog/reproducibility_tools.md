@@ -1,7 +1,7 @@
 ---
 title: "Creating reproducible environments using pip, renv, Docker and Code Ocean"
 date: 2025-02-08
-slug: reproducibility_tools-copy
+slug: reproducibility_tools
 tags: ["reproducibility", "Python", "pip", "Docker", "renv", "Code Ocean"]
 description: "Understanding the different approaches to computational reproducibility"
 ---

@@ -70,6 +70,7 @@ const socials = socialLinks(profile);
 				<h1 class="page-title">{heading ?? current.label}</h1>
 				{subtitle && <p class="page-sub">{subtitle}</p>}
 			</div>
+			{photo && <span class="spacer" aria-hidden="true" />}
 			{photo && <img class="portrait" src={withBase(photo)} alt={`Photo of ${profile.name}`} width="394" height="480" decoding="async" />}
 		</div>
 	</header>
@@ -142,7 +143,12 @@ const socials = socialLinks(profile);
 	.icons a { display: block; padding: 0.35rem; color: var(--nav-soft); border-radius: 4px; }
 	.icons a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
 	.icons :global(svg) { width: 1.15rem; height: 1.15rem; }
-	.with-photo { display: flex; align-items: center; gap: clamp(1.5rem, 100vw - 52rem, 26rem); /* ≈11 cm after the subtitle; shrinks on narrow screens */ padding-top: 1.75rem; padding-bottom: 1.75rem; }
+	.with-photo { display: flex; align-items: center; padding-top: 1.75rem; padding-bottom: 1.75rem; }
+	/* Text never shrinks, so the spacer gives way first; the cap (portrait + bordered edge + minimum spacer) makes the subtitle wrap only once the spacer is at its minimum. */
+	.with-photo > div { flex: none; max-width: calc(100% - 11rem - 6px); }
+	.spacer { flex: 0 1 26rem; min-width: 1.5rem; } /* ≈11 cm after the subtitle */
+	.with-photo .page-title { font-size: 3.4rem; }
+	.with-photo .page-sub { font-size: 1.5rem; max-width: none; }
 	.portrait { width: 9.5rem; height: auto; border-radius: 8px; border: 3px solid rgba(255, 255, 255, 0.85); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); flex: none; }
 	.page {
 		max-width: var(--wide);
@@ -176,6 +182,9 @@ const socials = socialLinks(profile);
 		.page-head-inner { padding: 1.75rem 1.25rem 2rem; }
 		.page-title { font-size: 2rem; }
 		.portrait { width: 6rem; }
-		.with-photo { gap: 1rem; }
+		.spacer { min-width: 1rem; }
+		.with-photo > div { max-width: calc(100% - 7rem - 6px); }
+		.with-photo .page-title { font-size: 2.5rem; }
+		.with-photo .page-sub { font-size: 1.2rem; }
 	}
 </style>

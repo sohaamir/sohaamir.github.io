@@ -1,9 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import Channel from '../layouts/Channel.astro';
-import SocialIcon from '../components/SocialIcon.astro';
 import { withBase } from '../lib/url';
-import { socialLinks } from '../lib/socials';
 
 const about = await getEntry('about', 'about');
 if (!about) throw new Error('about entry missing');
@@ -21,8 +19,6 @@ const news = await Promise.all(
 const fmt = (d: Date) =>
 	d.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 const iso = (d: Date) => d.toISOString().slice(0, 10);
-
-const email = socialLinks(profile).find((s) => s.icon === 'email')!;
 ---
 
 <Channel channel="about" title="about · Aamir Sohail" heading={profile.name} sub={profile.subtitle} photo={profile.photo}>
@@ -79,27 +75,14 @@ const email = socialLinks(profile).find((s) => s.icon === 'email')!;
 		</form>
 	</section>
 
-	<aside slot="aside" class="card side" aria-label="Contact">
-		<h2>Contact</h2>
-		<a class="email" href={email.href} aria-label={`${email.label}: ${email.text}`}>
-			<SocialIcon name="email" />
-			<span>{email.text}</span>
-		</a>
-	</aside>
 </Channel>
 
 <style>
-	:global(.page.has-aside) { --aside-width: 19rem; }
 	.bio { max-width: none; }
 	.bio :global(h2:first-child) { margin-top: 0; }
 	.bio :global(img) { float: right; margin: 0 0 1rem 1.5rem; border-radius: var(--radius); max-width: 40%; }
 	/* keep bio text in its own column beside the image, never wrapping underneath it */
 	.bio :global(img ~ p) { margin-right: calc(min(224px, 40%) + 1.5rem); }
-	.side { padding: 1.1rem 1.2rem; }
-	.side h2 { margin: 0 0 0.6rem; padding: 0; border: 0; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); }
-	.email { display: flex; align-items: center; gap: 0.6rem; color: var(--ink); font-size: 0.88rem; overflow-wrap: anywhere; }
-	.email:hover { color: var(--accent); text-decoration: none; }
-	.email :global(svg) { color: var(--nav); }
 	address { font-style: normal; line-height: 1.55; }
 	.where { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin: 1rem 0 1.25rem; }
 	.bitmoji { width: 13rem; height: auto; flex: none; }

@@ -140,11 +140,12 @@ const socials = socialLinks(profile);
 	.links a[aria-current='page'] { color: #fff; font-weight: 600; background: rgba(255, 255, 255, 0.12); }
 	.links .room { color: #ffcf8a; }
 	.icons { margin: 0 0 0 auto; padding: 0; list-style: none; display: flex; gap: 0.25rem; }
-	/* Icons in brand colours. GitHub, X and email have black marks, so they stay white on the dark navbar. */
+	/* Icons in brand colours. GitHub and X have black marks, so they stay white on the dark navbar; email is a white envelope with black lines. */
 	.icons a { display: block; padding: 0.35rem; color: #fff; border-radius: 4px; }
 	.icons a:hover { background: rgba(255, 255, 255, 0.14); }
 	[data-icon='bluesky'] a { color: #1185fe; }
 	[data-icon='linkedin'] a { color: #0a66c2; }
+	[data-icon='email'] a :global(svg) { fill: #fff; stroke: #000; }
 	.icons :global(svg) { width: 1.15rem; height: 1.15rem; }
 	.with-photo { display: flex; align-items: center; padding-top: 1.75rem; padding-bottom: 1.75rem; }
 	/* Text never shrinks, so the spacer gives way first; the cap (portrait + bordered edge + minimum spacer) makes the subtitle wrap only once the spacer is at its minimum. */

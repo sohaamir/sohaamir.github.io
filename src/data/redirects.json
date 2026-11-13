@@ -73,6 +73,7 @@
   "/projects/deconv/": "/about/",
   "/projects/haven/": "/about/",
   "/projects/metcog/": "/about/",
+  "/publications/": "/research/",
   "/repositories/": "/",
   "/teaching/": "/"
 }

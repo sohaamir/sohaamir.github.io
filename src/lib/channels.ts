@@ -18,7 +18,7 @@ const make = (num: Channel['num'], slug: string, blurb: string): Channel => ({
 
 export const CHANNELS: readonly Channel[] = [
   make(1, 'about', 'my background and research interests'),
-  make(2, 'publications', 'an up-to-date list of my research'),
+  make(2, 'research', 'an up-to-date list of my research'),
   make(3, 'cv', 'view and download my cv'),
   make(4, 'journey', 'my scientific journey in pictures'),
   make(5, 'blog', 'tutorials, life updates and more!'),

@@ -40,13 +40,13 @@ test.describe('tv menu (desktop)', () => {
     expect(menu.preview).toBe('an up-to-date list of my research');
   });
 
-  test('Enter at tv dives to /publications/ after ArrowDown', async ({ page }) => {
+  test('Enter at tv dives to /research/ after ArrowDown', async ({ page }) => {
     await page.goto('/?tv=1');
     await ready(page);
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
-    await expect(page).toHaveURL(/\/publications\/$/);
-    await expect(page.locator('.badge')).toHaveText('CH 02 · publications');
+    await expect(page).toHaveURL(/\/research\/$/);
+    await expect(page.locator('.badge')).toHaveText('CH 02 · research');
   });
 
   test('4 at tv dives to /journey/', async ({ page }) => {

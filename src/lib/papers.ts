@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { parse, type Creator } from '@retorquere/bibtex-parser';
 import { withBase } from './url';
 
-/** Groups on the publications page, in display order. */
+/** Groups on the research page, in display order. */
 export const SECTIONS = [
   { id: 'journal', label: 'Journal articles' },
   { id: 'preprint', label: 'Preprints and working papers' },

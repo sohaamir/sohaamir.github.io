@@ -4,8 +4,8 @@ import { joinBase, withBase } from '../../src/lib/url';
 
 describe('channels', () => {
   it('lists the five channels in order', () => {
-    expect(CHANNELS.map((c) => `${c.num} ${c.label}`)).toEqual(['1 about', '2 publications', '3 cv', '4 journey', '5 blog']);
-    expect(CHANNELS.map((c) => c.path)).toEqual(['/about/', '/publications/', '/cv/', '/journey/', '/blog/']);
+    expect(CHANNELS.map((c) => `${c.num} ${c.label}`)).toEqual(['1 about', '2 research', '3 cv', '4 journey', '5 blog']);
+    expect(CHANNELS.map((c) => c.path)).toEqual(['/about/', '/research/', '/cv/', '/journey/', '/blog/']);
   });
 
   it('gives every channel its fixed summary', () => {

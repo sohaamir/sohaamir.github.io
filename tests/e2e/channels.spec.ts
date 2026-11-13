@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 
 const CHANNELS = [
   ['about', 1],
-  ['publications', 2],
+  ['research', 2],
   ['cv', 3],
   ['journey', 4],
   ['blog', 5],
@@ -30,8 +30,8 @@ test('Escape on /cv/ goes to /?tv=1', async ({ page }) => {
   await expect(page).toHaveURL(/\/\?tv=1$/);
 });
 
-test('publications lists 12 papers', async ({ page }) => {
-  await page.goto('/publications/');
+test('research lists 12 papers', async ({ page }) => {
+  await page.goto('/research/');
   await expect(page.locator('article.paper')).toHaveCount(12);
 });
 

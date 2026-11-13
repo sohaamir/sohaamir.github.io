@@ -31,9 +31,9 @@ describe('room state machine', () => {
   it('seated + Enter picks up remote', () => {
     expect(reduce(at('seated'), key('Enter')).state.beat).toBe('tv');
   });
-  it('tv + key 2 dives to publications and highlights it', () => {
+  it('tv + key 2 dives to research and highlights it', () => {
     const r = reduce(at('tv'), key('2'));
-    expect(r.effects).toEqual([{ type: 'dive', path: '/publications/' }]);
+    expect(r.effects).toEqual([{ type: 'dive', path: '/research/' }]);
     expect(r.state).toEqual(at('tv', 1, true));
   });
   it('arrows wrap', () => {

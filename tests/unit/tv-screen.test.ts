@@ -9,7 +9,7 @@ describe('menuModel', () => {
     const m = menuModel(s(1));
     expect(m.header).toBe('AAMIR SOHAIL · CH 01–05');
     expect(MENU_HEADER).toBe(m.header);
-    expect(m.rows).toEqual(['  1 about', '▶ 2 publications', '  3 cv', '  4 journey', '  5 blog']);
+    expect(m.rows).toEqual(['  1 about', '▶ 2 research', '  3 cv', '  4 journey', '  5 blog']);
     expect(m.highlighted).toBe(1);
   });
 

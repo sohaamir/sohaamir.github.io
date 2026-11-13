@@ -7,7 +7,7 @@ export const MENU_HEADER = `AAMIR SOHAIL · CH 01–${LAST}`;
 
 export type MenuModel = {
   header: string;
-  /** `▶ 2 publications` for the highlighted row, `  1 about` for the others. */
+  /** `▶ 2 research` for the highlighted row, `  1 about` for the others. */
   rows: string[];
   highlighted: number;
   /** Label of the highlighted channel and its summary. */
@@ -100,7 +100,7 @@ const roundRect = (ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
 
 type Icon = (ctx: CanvasRenderingContext2D, cx: number, cy: number) => void;
 
-/** One outlined pictogram per channel (about, publications, cv, journey, blog), centred on cx, cy. */
+/** One outlined pictogram per channel (about, research, cv, journey, blog), centred on cx, cy. */
 const ICONS: Record<string, Icon> = {
   about: (ctx, cx, cy) => {
     ctx.beginPath();
@@ -111,7 +111,7 @@ const ICONS: Record<string, Icon> = {
     ctx.closePath();
     ctx.stroke();
   },
-  publications: (ctx, cx, cy) => {
+  research: (ctx, cx, cy) => {
     // An open book: two pages meeting at the spine.
     ctx.beginPath();
     ctx.moveTo(cx, cy - 12);

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
 const urls = readFileSync('tests/fixtures/old-urls.txt', 'utf8').split('\n').filter(Boolean);
-const LANDINGS = ['/', '/about/', '/publications/', '/cv/', '/journey/', '/blog/'];
+const LANDINGS = ['/', '/about/', '/research/', '/cv/', '/journey/', '/blog/'];
 const redirects: Record<string, string> = JSON.parse(readFileSync('src/data/redirects.json', 'utf8'));
 
 for (const url of urls) {

@@ -126,3 +126,11 @@
   image: pascl_group_photo.jpeg
   caption: "Giving my first invited talk to the [Politics and Social Change Lab (PASCL)](https://www.pascl.stanford.edu/) at Stanford!"
   year: 2026
+- id: hillsdale
+  image: hillsdale.jpeg
+  caption: "With [Jocelyn](https://ricardjocelyn.github.io/), Runyi, [Nastasia](https://www.nastasiaklevak.com/), [Gustavo](https://biox.stanford.edu/people/gustavo-santiago-reyes) and [Chase](https://snaplab.stanford.edu/people/chase-antonacci) after a fun time at Sandbox VR!"
+  year: 2026
+- id: christmas_market
+  image: christmas_market.jpeg
+  caption: "With members of the SDN/MSN lab at the Birmingham Christmas Market!"
+  year: 2026

@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { prefixHtml } from '../lib/base-prefix';
 
-async function* htmlFiles(dir: string): AsyncGenerator<string> {
+export async function* htmlFiles(dir: string): AsyncGenerator<string> {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) yield* htmlFiles(full);

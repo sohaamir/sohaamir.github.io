@@ -14,13 +14,13 @@ describe('content migration', () => {
     expect(mdFiles(join(content, 'news')).length).toBeGreaterThanOrEqual(13);
   });
 
-  it('has 32 journey images and every file exists in public/', () => {
+  it('has 34 journey images and every file exists in public/', () => {
     const yml = read(join(content, 'journey.yml'));
     const ids = [...yml.matchAll(/^- id: (\S+)$/gm)].map((m) => m[1]);
-    expect(ids).toHaveLength(32);
-    expect(new Set(ids).size).toBe(32);
+    expect(ids).toHaveLength(34);
+    expect(new Set(ids).size).toBe(34);
     const images = [...yml.matchAll(/^ {2}image: (\S+)$/gm)].map((m) => m[1]);
-    expect(images).toHaveLength(32);
+    expect(images).toHaveLength(34);
     for (const img of images) {
       expect(existsSync(join(pub, 'assets/img/gallery', img)), img).toBe(true);
     }

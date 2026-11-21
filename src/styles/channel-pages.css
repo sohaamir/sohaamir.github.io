@@ -22,6 +22,8 @@
 	--font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
 	--measure: 75ch;
 	--wide: 76rem;
+	/* about page content width: between full width (73.5rem) and the main column beside an aside (55.5rem) */
+	--about-width: 64.5rem;
 	--radius: 6px;
 }
 

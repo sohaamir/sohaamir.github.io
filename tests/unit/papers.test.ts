@@ -17,7 +17,7 @@ describe('loadPapers', () => {
 
   it('strips al-folio fields from bibtex', () => {
     for (const p of [...loadPapers('src/data/papers.bib'), ...mini]) {
-      expect(p.bibtex).not.toMatch(/bibtex_show|preview|\bpdf\s*=|\bcode\s*=|selected/);
+      expect(p.bibtex).not.toMatch(/bibtex_show|preview|\bpdf\s*=|\bcode\s*=|\bdata\s*=|\bprereg\s*=|selected/);
       expect(p.bibtex).toMatch(/^@\w+\{/);
       expect(p.bibtex).not.toMatch(/,\s*\}\s*$/);
     }
@@ -43,6 +43,9 @@ describe('loadPapers', () => {
     expect(byKey('mini2024').pdf).toBe('/assets/pdf/mini.pdf');
     expect(byKey('mini2024').preview).toBe('/assets/img/publication_preview/mini.png');
     expect(byKey('mini2024').code).toBe('https://example.org/code');
+    expect(byKey('mini2024').data).toBe('https://example.org/data');
+    expect(byKey('mini2024').prereg).toBe('https://example.org/prereg');
+    expect(byKey('pub2023').data).toBeUndefined();
     expect(byKey('accent2024').pdf).toBe('https://example.org/remote.pdf');
     expect(byKey('pub2023').pdf).toBeUndefined();
   });

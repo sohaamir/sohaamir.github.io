@@ -23,6 +23,10 @@ export type Paper = {
   doi?: string;
   pdf?: string;
   code?: string;
+  /** Open data (link to the dataset). */
+  data?: string;
+  /** Preregistration (link). */
+  prereg?: string;
   preprint?: string;
   abstract?: string;
   preview?: string;
@@ -32,7 +36,7 @@ export type Paper = {
   bibtex: string;
 };
 
-const STRIPPED_FIELDS = ['bibtex_show', 'preview', 'pdf', 'code', 'selected', 'section', 'preprint'];
+const STRIPPED_FIELDS = ['bibtex_show', 'preview', 'pdf', 'code', 'selected', 'section', 'preprint', 'data', 'prereg'];
 const MONTHS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 function monthNumber(raw: string | undefined): number {
@@ -91,6 +95,8 @@ export function loadPapers(bibPath: string): Paper[] {
       doi: clean(f.doi),
       pdf: pdf && (/^https?:\/\//i.test(pdf) ? pdf : withBase(`/assets/pdf/${pdf}`)),
       code: clean(f.code),
+      data: clean(f.data),
+      prereg: clean(f.prereg),
       preprint: clean(f.preprint),
       abstract: clean(f.abstract),
       section,

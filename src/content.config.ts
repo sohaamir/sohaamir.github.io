@@ -41,6 +41,7 @@ const profile = defineCollection({
       x: z.string(),
       linkedin: z.string(),
       orcid: z.string(),
+      scholar: z.string(),
       researchgate: z.string(),
       osf: z.string(),
     }),
@@ -53,6 +54,8 @@ const profile = defineCollection({
       }),
     ),
     experience: z.array(z.object({ role: z.string(), place: z.string(), years: z.string() })),
+    /** Short status line under the about-page banner subtitle; date is when it was last updated. */
+    currently: z.object({ text: z.string(), date: z.coerce.date() }).optional(),
   }),
 });
 

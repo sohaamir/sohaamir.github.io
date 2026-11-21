@@ -22,6 +22,14 @@ const iso = (d: Date) => d.toISOString().slice(0, 10);
 ---
 
 <Channel channel="about" title="about · Aamir Sohail" heading={profile.name} sub={profile.subtitle} photo={profile.photo}>
+	<Fragment slot="head">
+		{profile.currently && (
+			<p class="currently">
+				<strong>Currently:</strong> {profile.currently.text}{' '}
+				<time datetime={iso(profile.currently.date)}>({fmt(profile.currently.date)})</time>
+			</p>
+		)}
+	</Fragment>
 	<section class="prose bio" aria-label="Bio">
 		<Content />
 	</section>
@@ -78,7 +86,10 @@ const iso = (d: Date) => d.toISOString().slice(0, 10);
 </Channel>
 
 <style>
-	.bio { max-width: none; }
+	.currently { margin: 0.9rem 0 0; color: var(--banner-soft); font-size: 1.25rem; }
+	.currently strong { color: #fff; font-weight: 600; }
+	.currently time { opacity: 0.8; font-size: 0.92em; white-space: nowrap; }
+	section, .bio { max-width: var(--about-width); }
 	.bio :global(h2:first-child) { margin-top: 0; }
 	.bio :global(img) { float: right; margin: 0 0 1rem 1.5rem; border-radius: var(--radius); max-width: 40%; }
 	/* keep bio text in its own column beside the image, never wrapping underneath it */

@@ -1,6 +1,10 @@
 - id: aamir
   name: Aamir Sohail
   subtitle: "Social learning ⎟ Bayesian modeling ⎟ Artificial intelligence"
+  # Status line under the subtitle on the about page; bump the date whenever the text changes.
+  currently:
+    text: Writing up the results from our online social influence study!
+    date: 2026-11-21
   photo: /assets/img/profile.jpg
   email: aamir@sohamir.org
   socials:
@@ -9,6 +13,7 @@
     x: AamirNSohail
     linkedin: aamir-sohail-3a42b9293
     orcid: 0009-0000-6584-4579
+    scholar: A41-bUMAAAAJ
     researchgate: Aamir-Sohail-30
     osf: ya4td
   # From the CV (academic_cvs/helvetica_neue_latex_cv: education.tex, employment.tex).

@@ -69,6 +69,7 @@ const socials = socialLinks(profile);
 			<div>
 				<h1 class="page-title">{heading ?? current.label}</h1>
 				{subtitle && <p class="page-sub">{subtitle}</p>}
+				<slot name="head" />
 			</div>
 			{photo && <span class="spacer" aria-hidden="true" />}
 			{photo && <img class="portrait" src={withBase(photo)} alt={`Photo of ${profile.name}`} width="394" height="480" decoding="async" />}
@@ -152,6 +153,8 @@ const socials = socialLinks(profile);
 	.spacer { flex: 0 1 26rem; min-width: 1.5rem; } /* ≈11 cm after the subtitle */
 	.with-photo .page-title { font-size: 3.4rem; }
 	.with-photo .page-sub { font-size: 1.5rem; max-width: none; }
+	/* right edge lines up with the content column below rather than the full-width banner */
+	.with-photo .portrait { margin-right: max(0px, 100% - var(--about-width)); }
 	.portrait { width: 9.5rem; height: auto; border-radius: 8px; border: 3px solid rgba(255, 255, 255, 0.85); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); flex: none; }
 	.page {
 		max-width: var(--wide);

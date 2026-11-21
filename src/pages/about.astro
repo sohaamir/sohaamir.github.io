@@ -21,7 +21,7 @@ const fmt = (d: Date) =>
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 ---
 
-<Channel channel="about" title="about · Aamir Sohail" heading={profile.name} sub={profile.subtitle} photo={profile.photo}>
+<Channel channel="about" title="about · Aamir Sohail" heading={profile.name} sub={profile.subtitle} photo={profile.photo} asideWidth="14rem">
 	<Fragment slot="head">
 		{profile.currently && (
 			<p class="currently">
@@ -83,13 +83,26 @@ const iso = (d: Date) => d.toISOString().slice(0, 10);
 		</form>
 	</section>
 
+	<div slot="aside" class="job-note" role="note" aria-labelledby="job-market">
+		<h2 id="job-market">On the job market <span aria-hidden="true">💼</span></h2>
+		<p>I will be on the job market from <strong>September 2027</strong>. I am open to academic and industry roles, in the UK or abroad.</p>
+		<p>If you like what you see, please <a href={`mailto:${profile.email}`}>send me an email</a>. I would be happy to chat further!</p>
+	</div>
 </Channel>
 
 <style>
 	.currently { margin: 0.9rem 0 0; color: var(--banner-soft); font-size: 1.25rem; }
 	.currently strong { color: #fff; font-weight: 600; }
 	.currently time { opacity: 0.8; font-size: 0.92em; white-space: nowrap; }
-	section, .bio { max-width: var(--about-width); }
+	.bio { max-width: none; }
+	/* sticky-note style callout in the side column */
+	.job-note { padding: 1rem 1.1rem 1.1rem; background: #fff4c2; border: 1px solid #ecd27a; border-top: 4px solid #e2b93b; border-radius: var(--radius); box-shadow: 0 3px 10px rgba(120, 90, 0, 0.12); font-size: 0.95rem; line-height: 1.5; color: #4a3f17; }
+	.job-note h2 { margin: 0 0 0.5rem; padding: 0; border: 0; font-size: 1.05rem; font-weight: 600; color: #3b3110; }
+	.job-note p { margin: 0 0 0.6rem; }
+	.job-note p:last-child { margin-bottom: 0; }
+	.job-note a { color: #9c3414; font-weight: 600; }
+	/* on narrow screens the side column stacks; show the note first rather than after Contact */
+	@media (max-width: 900px) { :global(.page.has-aside > aside.side) { order: -1; } }
 	.bio :global(h2:first-child) { margin-top: 0; }
 	.bio :global(img) { float: right; margin: 0 0 1rem 1.5rem; border-radius: var(--radius); max-width: 40%; }
 	/* keep bio text in its own column beside the image, never wrapping underneath it */
